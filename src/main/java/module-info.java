@@ -10,6 +10,11 @@ module org.example.gestion_restaurant {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
-    opens org.example.gestion_restaurant to javafx.fxml;
+    // Exportez le package contenant vos contrôleurs
+    exports controllers to javafx.fxml;
     exports org.example.gestion_restaurant;
+
+    // Ouvrez le package contenant vos fichiers FXML si nécessaire
+    opens controllers to javafx.fxml;
+    opens org.example.gestion_restaurant to javafx.fxml;
 }
