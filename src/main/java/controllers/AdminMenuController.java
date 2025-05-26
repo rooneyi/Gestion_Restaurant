@@ -24,4 +24,9 @@ public class AdminMenuController {
         menuService.addMenuItem(item);
         refreshMenuTable();
     }
+
+    private void refreshMenuTable() {
+        menuTable.getItems().setAll(menuService.getMenuByCategory(categoryField.getText()));
+    }
+
 }

@@ -15,7 +15,7 @@ public class AuthService {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/restaurant_db",
                     "root",
-                    "password"
+                    ""
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -33,6 +33,22 @@ public class AuthService {
             e.printStackTrace();
             return false;
         }
+    }
+    public User getUser(String username) {
+        String query = "SELECT * FROM users WHERE username = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                String uname = rs.getString("username");
+                String pwd = rs.getString("password");
+                boolean isAdmin = rs.getBoolean("is_admin");
+                return new User(uname, pwd, isAdmin);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public boolean createUser(String username, String password, boolean isAdmin) {

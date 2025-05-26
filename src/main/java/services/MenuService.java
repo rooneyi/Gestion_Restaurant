@@ -11,5 +11,5 @@ public class MenuService {
 
     public void addMenuItem(Menu item) { /* ... */ }
     public void removeMenuItem(int id) { /* ... */ }
-    public List<Menu> getMenuByCategory(String category) { /* ... */ }
+    public List<Menu> getMenuByCategory(String category) { /* ... */ return null;  }
 }
