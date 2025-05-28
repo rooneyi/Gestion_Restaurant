@@ -1,73 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+<BorderPane xmlns="http://javafx.com/javafx/20.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.AdminController">
 
-    <!-- Partie gauche : menu -->
+    <!-- Menu latéral gauche -->
     <left>
-        <VBox spacing="20" alignment="TOP_CENTER" style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-border-color: #ccc; -fx-border-width: 1;">
-            <Label text="Restaurant Kikongo" style="-fx-font-size: 24px; -fx-text-fill: red; -fx-font-weight: bold;" />
+        <VBox spacing="20" alignment="TOP_CENTER"
+              style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-border-color: #ccc; -fx-border-width: 1;">
+            <Label text="Restaurant Kikongo"
+                   style="-fx-font-size: 24px; -fx-text-fill: red; -fx-font-weight: bold;" />
 
-            <HBox alignment="CENTER" style="-fx-background-color: #f4f4f4; -fx-padding: 8; -fx-background-radius: 10;">
+            <HBox alignment="CENTER"
+                  style="-fx-background-color: #f4f4f4; -fx-padding: 8; -fx-background-radius: 10;">
                 <ImageView fitHeight="30" fitWidth="30">
                     <image>
 <!--                        <Image url="@/assets/avatar.png" />-->
                     </image>
                 </ImageView>
-                <Label text="medarinekikongwette09@gmail.com" style="-fx-font-size: 12px; -fx-text-fill: #333; -fx-padding: 0 0 0 10;" />
+                <Label text="medarinekikongwette09@gmail.com"
+                       style="-fx-font-size: 12px; -fx-text-fill: #333; -fx-padding: 0 0 0 10;" />
             </HBox>
 
-            <!-- ✅ CheckBox avec fx:id -->
             <VBox spacing="10" alignment="TOP_LEFT" style="-fx-padding: 10;">
                 <CheckBox fx:id="dashboardCheckBox" text="Tableau de bord" />
                 <CheckBox fx:id="billingCheckBox" text="Facturation" />
                 <CheckBox fx:id="stockCheckBox" text="Gestion des stocks" />
             </VBox>
 
-            <!-- ✅ Bouton "Tableau de bord" relié -->
             <Button fx:id="dashboardButton" text="Tableau de bord"
                     onAction="#handleDashboardButton"
                     style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: #0000FF; -fx-underline: true; -fx-font-size: 14px;" />
 
-            <!-- ✅ Bouton "Déconnexion" relié -->
             <Button fx:id="logoutButton" text="Déconnexion"
                     onAction="#handleLogout"
                     style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: #0000FF; -fx-underline: true; -fx-font-size: 14px;" />
         </VBox>
     </left>
 
-    <!-- Partie centrale : tableau de bord -->
+    <!-- Zone centrale : contenu du tableau de bord -->
     <center>
         <VBox alignment="TOP_CENTER" spacing="30" style="-fx-padding: 40;">
-            <Label text="Tableau de bord" style="-fx-font-size: 24px; -fx-text-fill: #555;" />
+            <Label text="Tableau de bord"
+                   style="-fx-font-size: 24px; -fx-text-fill: #555;" />
 
             <FlowPane hgap="20" vgap="20" alignment="CENTER">
-                <!-- Carte 1 -->
-                <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <VBox spacing="5" alignment="CENTER"
+                      style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <Label text="Vente du jours" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
                     <Label text="22 sortie" style="-fx-text-fill: red; -fx-font-size: 16px;" />
                 </VBox>
 
-                <!-- Carte 2 -->
-                <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <VBox spacing="5" alignment="CENTER"
+                      style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <Label text="Stock faible" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
                     <Label text="4" style="-fx-text-fill: red; -fx-font-size: 16px;" />
                 </VBox>
 
-                <!-- Carte 3 -->
-                <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <VBox spacing="5" alignment="CENTER"
+                      style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <Label text="Produit en rupture de Stock" style="-fx-font-size: 14px; -fx-font-weight: bold;" wrapText="true"/>
                     <Label text="4" style="-fx-text-fill: red; -fx-font-size: 16px;" />
                 </VBox>
 
-                <!-- Carte Historique -->
-                <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <VBox spacing="5" alignment="CENTER"
+                      style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
                     <Label text="Historique" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
                     <ImageView fitHeight="30" fitWidth="30">
                         <image>

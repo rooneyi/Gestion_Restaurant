@@ -47,7 +47,7 @@ public class AuthController implements Initializable {
         Parent root;
 
         if (user.isAdmin()) {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/admin_dashboard.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/dashboard.fxml")));
         } else {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/user_dashboard.fxml")));
         }

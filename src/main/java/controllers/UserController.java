@@ -47,7 +47,7 @@ public class UserController implements Initializable {
         Parent root;
 
         if (user.isAdmin()) {
-            root = FXMLLoader.load(getClass().getResource("/views/admin_dashboard.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/views/dashboard.fxml"));
         } else {
             root = FXMLLoader.load(getClass().getResource("/views/user_dashboard.fxml"));
         }
