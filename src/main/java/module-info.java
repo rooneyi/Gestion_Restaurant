@@ -13,9 +13,9 @@ module org.example.gestion_restaurant {
 
     // Exportez le package contenant vos contrôleurs
     exports controllers to javafx.fxml;
-    exports org.example.gestion_restaurant;
+    exports org;
 
     // Ouvrez le package contenant vos fichiers FXML si nécessaire
     opens controllers to javafx.fxml;
-    opens org.example.gestion_restaurant to javafx.fxml;
+    opens org to javafx.fxml;
 }
