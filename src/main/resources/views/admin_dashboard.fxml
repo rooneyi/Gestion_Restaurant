@@ -1,35 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
 
-<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
-    <Text style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Tableau de bord Admin" wrappingWidth="474.9920349121094" />
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.RestaurantController">
 
-    <Label style="-fx-font-size: 18px;" text="Créer un nouvel utilisateur" />
+    <!-- Partie gauche : menu -->
+    <left>
+        <VBox spacing="20" alignment="TOP_CENTER" style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-border-color: #ccc; -fx-border-width: 1;">
+            <Label text="Restaurant Kikongo" style="-fx-font-size: 24px; -fx-text-fill: red; -fx-font-weight: bold;" />
 
-    <GridPane hgap="10" vgap="10">
-        <Label text="Nom d'utilisateur:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <TextField fx:id="newUsernameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <HBox alignment="CENTER" style="-fx-background-color: #f4f4f4; -fx-padding: 8; -fx-background-radius: 10;">
+                <ImageView fitHeight="30" fitWidth="30">
+                    <image>
+<!--                        <Image url="@/assets/avatar.png" />-->
+                    </image>
+                </ImageView>
+                <Label text="medarinekikongwette09@gmail.com" style="-fx-font-size: 12px; -fx-text-fill: #333; -fx-padding: 0 0 0 10;" />
+            </HBox>
 
-        <Label text="Mot de passe:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <PasswordField fx:id="newPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <columnConstraints>
-         <ColumnConstraints />
-         <ColumnConstraints />
-      </columnConstraints>
-      <rowConstraints>
-         <RowConstraints />
-         <RowConstraints />
-      </rowConstraints>
-    </GridPane>
+            <!-- ✅ CheckBox avec fx:id -->
+            <VBox spacing="10" alignment="TOP_LEFT" style="-fx-padding: 10;">
+                <CheckBox fx:id="dashboardCheckBox" text="Tableau de bord" />
+                <CheckBox fx:id="billingCheckBox" text="Facturation" />
+                <CheckBox fx:id="stockCheckBox" text="Gestion des stocks" />
+            </VBox>
 
-    <Button onAction="#handleCreateUser" text="Créer utilisateur" />
-</VBox>
+            <!-- ✅ Bouton "Tableau de bord" relié -->
+            <Button fx:id="dashboardButton" text="Tableau de bord"
+                    onAction="#handleDashboardButton"
+                    style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: #0000FF; -fx-underline: true; -fx-font-size: 14px;" />
+
+            <!-- ✅ Bouton "Déconnexion" relié -->
+            <Button fx:id="logoutButton" text="Déconnexion"
+                    onAction="#handleLogout"
+                    style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: #0000FF; -fx-underline: true; -fx-font-size: 14px;" />
+        </VBox>
+    </left>
+
+    <!-- Partie centrale : tableau de bord -->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="30" style="-fx-padding: 40;">
+            <Label text="Tableau de bord" style="-fx-font-size: 24px; -fx-text-fill: #555;" />
+
+            <FlowPane hgap="20" vgap="20" alignment="CENTER">
+                <!-- Carte 1 -->
+                <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
+                    <Label text="Vente du jours" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                    <Label text="22 sortie" style="-fx-text-fill: red; -fx-font-size: 16px;" />
+                </VBox>
+
+                <!-- Carte 2 -->
+                <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
+                    <Label text="Stock faible" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                    <Label text="4" style="-fx-text-fill: red; -fx-font-size: 16px;" />
+                </VBox>
+
+                <!-- Carte 3 -->
+                <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
+                    <Label text="Produit en rupture de Stock" style="-fx-font-size: 14px; -fx-font-weight: bold;" wrapText="true"/>
+                    <Label text="4" style="-fx-text-fill: red; -fx-font-size: 16px;" />
+                </VBox>
+
+                <!-- Carte Historique -->
+                <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-background-radius: 10;">
+                    <Label text="Historique" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                    <ImageView fitHeight="30" fitWidth="30">
+                        <image>
+<!--                            <Image url="@/assets/clock.png"/>-->
+                        </image>
+                    </ImageView>
+                </VBox>
+            </FlowPane>
+        </VBox>
+    </center>
+</BorderPane>

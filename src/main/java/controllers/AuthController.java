@@ -3,6 +3,7 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,9 +47,9 @@ public class AuthController implements Initializable {
         Parent root;
 
         if (user.isAdmin()) {
-            root = FXMLLoader.load(getClass().getResource("/views/admin_dashboard.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/admin_dashboard.fxml")));
         } else {
-            root = FXMLLoader.load(getClass().getResource("/views/user_dashboard.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/user_dashboard.fxml")));
         }
 
         Scene scene = new Scene(root);
