@@ -5,9 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import services.AuthService;
 
 public class AdminController implements Initializable {
@@ -15,6 +13,36 @@ public class AdminController implements Initializable {
     @FXML private TextField newUsernameField;
     @FXML private PasswordField newPasswordField;
 
+    @FXML
+    private CheckBox dashboardCheckBox;
+
+    @FXML
+    private CheckBox billingCheckBox;
+
+    @FXML
+    private CheckBox stockCheckBox;
+
+    @FXML
+    private Button dashboardButton;
+
+    @FXML
+    private Button logoutButton;
+
+    @FXML
+    private void initialize() {
+        // Initialisation si nécessaire
+    }
+
+    @FXML
+    private void handleDashboardButton() {
+        // Action pour le bouton Tableau de bord
+    }
+
+    @FXML
+    private void handleLogout() {
+        // Action pour la déconnexion
+
+    }
     private AuthService authService;
 
     @Override
