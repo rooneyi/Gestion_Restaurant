@@ -1,4 +1,4 @@
-package org.example.gestion_restaurant;
+package org;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

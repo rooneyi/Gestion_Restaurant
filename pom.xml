@@ -122,7 +122,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>org.example.gestion_restaurant/org.example.gestion_restaurant.Main
+                            <mainClass>org.example.gestion_restaurant/org.Main
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
