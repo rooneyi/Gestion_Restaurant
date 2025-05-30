@@ -11,7 +11,7 @@ public class Main extends Application {
     double x,y = 0;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/views/dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/views/Auth.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
         root.setOnMousePressed(event -> {
@@ -24,7 +24,7 @@ public class Main extends Application {
             primaryStage.setY(event.getScreenY() - y);
         });
 
-        primaryStage.setScene(new Scene(root, 700, 400));
+        primaryStage.setScene(new Scene(root, 1150, 660));
         primaryStage.show();
     }
 
