@@ -7,25 +7,29 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.IOException;
-
 public class Main extends Application {
+    double x,y = 0;
     @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/views/dashboard.fxml"));
+        primaryStage.initStyle(StageStyle.UNDECORATED);
 
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/views/auth.fxml"));
-        Parent root = fxmlLoader.load();
+        root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
 
-        stage.setTitle("Restaurant Application");
-        stage.setScene(new Scene(root));
-        stage.setMaximized(true); // ✅ plein écran adapté automatiquement
+        root.setOnMouseDragged(event -> {
+            primaryStage.setX(event.getScreenX() - x);
+            primaryStage.setY(event.getScreenY() - y);
+        });
 
-        stage.show();
+        primaryStage.setScene(new Scene(root, 700, 400));
+        primaryStage.show();
     }
+
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
-
-
 }
