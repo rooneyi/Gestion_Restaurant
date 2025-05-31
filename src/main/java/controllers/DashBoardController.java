@@ -1,5 +1,11 @@
 package controllers;
 
+/*
+<AnchorPane prefHeight="660.0" prefWidth="1150.0" stylesheets="@styleDashBoard.css"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashBoardController">
+ */
+
 
 
 import javafx.animation.TranslateTransition;

@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UserController implements Initializable {
+public class UserDashboardController implements Initializable {
 
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;

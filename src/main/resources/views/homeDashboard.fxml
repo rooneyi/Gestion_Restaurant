@@ -8,7 +8,7 @@
 
 <Pane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.UserDashboardController"
-            prefHeight="400.0" prefWidth="600.0" >
+            fx:controller="controllers.HomeDashboardController"
+            prefHeight="400.0" prefWidth="600.0">
 
 </Pane>
