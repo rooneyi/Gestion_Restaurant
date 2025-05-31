@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="660.0" prefWidth="1150.0" stylesheets="@styleDashBoard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashBoardController">
+<AnchorPane prefHeight="660.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashBoardController">
     <children>
         <BorderPane layoutX="114.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -26,7 +26,7 @@
                                         <Image url="@../Images/Exit.png" />
                                     </image>
                                 </ImageView>
-                        <ImageView fx:id="Exit1" fitHeight="21.0" fitWidth="21.0" layoutX="1094.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="1094.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Images/Minimize.png" />
                            </image>
@@ -35,7 +35,7 @@
                         </Pane>
                         <HBox layoutX="239.0" layoutY="1.0" prefHeight="40.0" prefWidth="677.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                             <children>
-                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Tableau de bord">
+                                <JFXButton onAction="#home" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Tableau de bord">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -47,7 +47,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Facturations">
+                                <JFXButton onAction="#facturations" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Facturations">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -59,7 +59,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Gestion  Stock">
+                                <JFXButton onAction="#gestion" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Gestion  Stock">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -71,7 +71,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Utilisateurs">
+                                <JFXButton onAction="#utilisateurs" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Utilisateurs">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -83,7 +83,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                        <JFXButton layoutX="418.0" layoutY="10.0" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #ee6a8c;" styleClass="menuItem" text="Déconnexion">
+                        <JFXButton layoutX="418.0" layoutY="10.0" onAction="#deconnexion" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #ee6a8c;" styleClass="menuItem" text="Déconnexion">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -135,7 +135,7 @@
                     <children>
                         <VBox layoutX="14.0" layoutY="105.0" prefHeight="490.0" prefWidth="176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="105.0">
                             <children>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Tableau de Bord" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#home" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Tableau de Bord" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
@@ -150,7 +150,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Facturations" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#facturations" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Facturations" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
@@ -165,7 +165,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Gestions Stock" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#gestion" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Gestions Stock" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
@@ -180,7 +180,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Utilisateurs" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" onAction="#utilisateurs" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Utilisateurs" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
@@ -214,7 +214,7 @@
                            <children>
                               <VBox alignment="CENTER" layoutX="38.0" layoutY="120.0" prefHeight="73.0" prefWidth="176.0" style="-fx-background-color: #f1f2f6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <children>
-                                    <JFXButton alignment="CENTER" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #ee6a8c;" styleClass="sidebarItem" text="Déconnexion" textFill="WHITE">
+                                    <JFXButton alignment="CENTER" onAction="#deconnexion" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #ee6a8c;" styleClass="sidebarItem" text="Déconnexion" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
