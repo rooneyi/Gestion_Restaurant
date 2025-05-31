@@ -241,7 +241,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f1f2f6;" BorderPane.alignment="CENTER">
                <children>
-                  <StackPane layoutX="97.0" layoutY="148.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <StackPane fx:id="contentArea" layoutX="97.0" layoutY="148.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
          </center>
