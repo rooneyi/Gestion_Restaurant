@@ -6,7 +6,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="244.0" layoutY="171.0" text="Label">
+      <Label layoutX="244.0" layoutY="171.0" text="Factures">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
