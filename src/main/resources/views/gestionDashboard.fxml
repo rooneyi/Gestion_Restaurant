@@ -9,9 +9,9 @@
 <?import javafx.scene.text.Font?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
       xmlns="http://javafx.com/javafx/23.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserDashboardController" >
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FactureDashboardController" >
     <children>
-        <Label layoutX="244.0" layoutY="171.0" text="Users">
+        <Label layoutX="244.0" layoutY="171.0" text="Gestion de stock">
             <font>
                 <Font name="System Bold" size="36.0" />
             </font>
