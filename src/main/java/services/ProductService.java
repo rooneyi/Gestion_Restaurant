@@ -21,8 +21,8 @@ public class ProductService {
             CREATE TABLE IF NOT EXISTS products (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 name VARCHAR(100),
-                quantity INT,
-                price DOUBLE
+                price DOUBLE,
+                quantity INT
             )
         """);
     }
@@ -47,7 +47,7 @@ public class ProductService {
 
     public boolean addProduct(Product p) {
         try (PreparedStatement stmt = connection.prepareStatement(
-                "INSERT INTO products (name, quantity, price) VALUES (?, ?, ?)")) {
+                "INSERT INTO products (name,  price, quantity,) VALUES (?, ?, ?)")) {
             stmt.setString(1, p.getName());
             stmt.setInt(2, p.getQuantity());
             stmt.setDouble(3, p.getPrice());
@@ -60,10 +60,10 @@ public class ProductService {
 
     public boolean updateProduct(String name, Product p) {
         try (PreparedStatement stmt = connection.prepareStatement(
-                "UPDATE products SET name=?, quantity=?, price=? WHERE id=?")) {
+                "UPDATE products SET name=?, price=?, quantity=? WHERE id=?")) {
             stmt.setString(1, p.getName());
-            stmt.setInt(2, p.getQuantity());
             stmt.setDouble(3, p.getPrice());
+            stmt.setInt(2, p.getQuantity());
             stmt.setInt(4, p.getId());
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {

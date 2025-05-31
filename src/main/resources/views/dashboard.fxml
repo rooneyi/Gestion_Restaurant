@@ -71,7 +71,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Utilisateurs" onAction="#utilisateurs">
+                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Utilisateurs" onAction="#gererUtilisateurs">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>

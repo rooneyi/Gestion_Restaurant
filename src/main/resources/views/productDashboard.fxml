@@ -28,7 +28,7 @@
         <Label layoutX="310.0" layoutY="290.0" text="Prix:" />
         <TextField fx:id="priceField" layoutX="350.0" layoutY="285.0" prefWidth="80.0" />
 
-        <Label layoutX="20.0" layoutY="330.0" text="Catégorie:" />
+        <Label layoutX="20.0" layoutY="330.0" text="Quantiter:" />
         <TextField fx:id="quantityField" layoutX="150.0" layoutY="325.0" prefWidth="140.0" />
 
         <Button text="Ajouter" layoutX="310.0" layoutY="325.0" onAction="#handleAddProduct" />
