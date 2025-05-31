@@ -110,6 +110,12 @@ public class DashBoardController implements Initializable {
 
     }
 
+    public void produits(javafx.event.ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/productDashboard.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(root);
+    }
+
     // La methode qui permet de changer de vue dans le try et catch
     public void home(javafx.event.ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/views/homeDashboard.fxml"));

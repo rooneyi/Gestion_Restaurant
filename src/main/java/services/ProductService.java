@@ -1,0 +1,84 @@
+package services;
+
+import models.Product;
+import utils.DBConnection;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProductService {
+    private final Connection connection;
+
+    public ProductService() throws SQLException {
+        this.connection = DBConnection.getConnection();
+        initTable();
+    }
+
+    private void initTable() throws SQLException {
+        Statement stmt = connection.createStatement();
+        stmt.executeUpdate("""
+            CREATE TABLE IF NOT EXISTS products (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(100),
+                quantity INT,
+                price DOUBLE
+            )
+        """);
+    }
+
+    public List<Product> getAllProducts() {
+        List<Product> list = new ArrayList<>();
+        try (PreparedStatement stmt = connection.prepareStatement("SELECT * FROM products");
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                list.add(new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        (double) rs.getInt("quantity"),
+                        (int) rs.getDouble("price")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public boolean addProduct(Product p) {
+        try (PreparedStatement stmt = connection.prepareStatement(
+                "INSERT INTO products (name, quantity, price) VALUES (?, ?, ?)")) {
+            stmt.setString(1, p.getName());
+            stmt.setInt(2, p.getQuantity());
+            stmt.setDouble(3, p.getPrice());
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateProduct(String name, Product p) {
+        try (PreparedStatement stmt = connection.prepareStatement(
+                "UPDATE products SET name=?, quantity=?, price=? WHERE id=?")) {
+            stmt.setString(1, p.getName());
+            stmt.setInt(2, p.getQuantity());
+            stmt.setDouble(3, p.getPrice());
+            stmt.setInt(4, p.getId());
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteProduct(String id) {
+        try (PreparedStatement stmt = connection.prepareStatement("DELETE FROM products WHERE id=?")) {
+            stmt.setInt(1, Integer.parseInt(id));
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+}
