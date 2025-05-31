@@ -14,19 +14,27 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import models.User;
+import utils.Session;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DashBoardController implements Initializable {
+
+    @FXML private Button logoutButton;
 
     @FXML
     private ImageView Exit;
@@ -46,6 +54,11 @@ public class DashBoardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        User user = Session.getInstance().getUser();
+        if (user != null) {
+            System.out.println("Bienvenue " + user.getUsername());
+            // tu peux maintenant afficher des infos utilisateur dans l'UI
+        }
 
         // fermer l'application'
         Exit.setOnMouseClicked(event -> {
@@ -111,6 +124,11 @@ public class DashBoardController implements Initializable {
         contentArea.getChildren().setAll(root);
     }
 
+    public void gererUtilisateurs(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/userCrud.fxml"));
+        contentArea.getChildren().setAll(root);
+    }
+
     public void gestion (javafx.event.ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/views/gestionDashboard.fxml"));
         contentArea.getChildren().removeAll();
@@ -121,6 +139,17 @@ public class DashBoardController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/views/userDashBoard.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(root);
+    }
+    @FXML
+    private void handleLogout() throws IOException {
+        // 🔐 Vider la session
+        Session.getInstance().clear();
+
+        // 🔄 Rediriger vers la page de connexion
+        Stage stage = (Stage) logoutButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/auth.fxml")));
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 

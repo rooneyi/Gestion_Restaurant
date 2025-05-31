@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
@@ -11,10 +8,31 @@
       xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeDashboardController" >
     <children>
-        <Label layoutX="244.0" layoutY="171.0" text="home">
+        <Label layoutX="220.0" layoutY="20.0" text="Gestion des Utilisateurs">
             <font>
-                <Font name="System Bold" size="36.0" />
+                <Font name="System Bold" size="24.0" />
             </font>
         </Label>
+
+        <TableView fx:id="userTable" layoutX="20.0" layoutY="70.0" prefHeight="200.0" prefWidth="560.0">
+            <columns>
+                <TableColumn fx:id="usernameCol" text="Nom d'utilisateur" prefWidth="180" />
+                <TableColumn fx:id="roleCol" text="Rôle" prefWidth="120" />
+            </columns>
+        </TableView>
+
+        <Label layoutX="20.0" layoutY="290.0" text="Nom d'utilisateur:" />
+        <TextField fx:id="usernameField" layoutX="150.0" layoutY="285.0" prefWidth="140.0" />
+
+        <Label layoutX="310.0" layoutY="290.0" text="Mot de passe:" />
+        <PasswordField fx:id="passwordField" layoutX="400.0" layoutY="285.0" prefWidth="140.0" />
+
+        <Label layoutX="20.0" layoutY="330.0" text="Rôle:" />
+        <ChoiceBox fx:id="roleChoiceBox" layoutX="150.0" layoutY="325.0" prefWidth="140.0">
+        </ChoiceBox>
+
+        <Button text="Ajouter" layoutX="310.0" layoutY="325.0" onAction="#handleAddUser" />
+        <Button text="Modifier" layoutX="400.0" layoutY="325.0" onAction="#handleUpdateUser" />
+        <Button text="Supprimer" layoutX="490.0" layoutY="325.0" onAction="#handleDeleteUser" />
     </children>
 </Pane>
