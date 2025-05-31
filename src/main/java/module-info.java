@@ -18,4 +18,5 @@ module org.example.gestion_restaurant {
     // Ouvrez le package contenant vos fichiers FXML si nécessaire
     opens controllers to javafx.fxml;
     opens org to javafx.fxml;
+
 }
