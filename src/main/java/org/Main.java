@@ -24,6 +24,7 @@ public class Main extends Application {
             y = event.getSceneY();
         });
 
+
         root.setOnMouseDragged(event -> {
             primaryStage.setX(event.getScreenX() - x);
             primaryStage.setY(event.getScreenY() - y);
