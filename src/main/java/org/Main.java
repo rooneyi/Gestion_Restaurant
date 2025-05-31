@@ -14,6 +14,7 @@ public class Main extends Application {
     double x,y = 0;
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         DatabaseInitializer.initialize(); // <-- ajoute cette ligne AVANT le chargement FXML
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/auth.fxml")));
