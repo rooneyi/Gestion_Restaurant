@@ -98,7 +98,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </JFXButton>
-                              <ChoiceBox layoutX="334.0" layoutY="253.0" prefHeight="28.0" prefWidth="208.0" style="-fx-background-color: WHITE; -fx-border-color: #056bb3;">
+                              <ChoiceBox fx:id="roleChoiceBox" layoutX="334.0" layoutY="253.0" prefHeight="28.0" prefWidth="208.0" style="-fx-background-color: WHITE; -fx-border-color: #056bb3;">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>

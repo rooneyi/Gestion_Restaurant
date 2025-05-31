@@ -1,21 +1,30 @@
 package models;
 
 public class Menu {
+    private int id;
     private String name;
     private double price;
     private String category;
 
-    // Constructeur avec arguments
+    public Menu() {}
+
+    public Menu(int id, String name, double price, String category) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
+
     public Menu(String name, double price, String category) {
         this.name = name;
         this.price = price;
         this.category = category;
     }
 
-    // Constructeur sans argument (si besoin pour FXML/ORM)
-    public Menu() { }
-
     // Getters et setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
