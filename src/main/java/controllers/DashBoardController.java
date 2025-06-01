@@ -51,6 +51,8 @@ public class DashBoardController implements Initializable {
         Exit.setOnMouseClicked(event -> {
             System.exit(0);
         });
+
+        /*
         // Le slider
         slider.setTranslateX(-176);
         Menu.setOnMouseClicked(event -> {
@@ -69,6 +71,9 @@ public class DashBoardController implements Initializable {
             });
         });
 
+
+         */
+        /*
         MenuClose.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.4));
@@ -84,8 +89,11 @@ public class DashBoardController implements Initializable {
                 MenuClose.setVisible(false);
             });
         });
-
         // fermer le slider
+
+         */
+
+
 
         // debut de StackPane dans le try et catch
         try {
