@@ -83,7 +83,19 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                        <JFXButton layoutX="418.0" layoutY="10.0" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #ee6a8c;" styleClass="menuItem" text="Déconnexion">
+                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Produits" onAction="#produits">
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../Images/user.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </JFXButton>
+                        <JFXButton layoutX="418.0" layoutY="10.0" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #ee6a8c;" styleClass="menuItem" text="Déconnexion" onAction="#handleLogout">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -95,6 +107,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </JFXButton>
+
                             </children>
                         </HBox>
                         <Label fx:id="Menu" layoutX="14.0" layoutY="36.0" prefHeight="22.0" prefWidth="92.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.007998687500045" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="618.063980710938" AnchorPane.topAnchor="36.0">

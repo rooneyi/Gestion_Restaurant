@@ -1,24 +1,22 @@
-// services/AuthService.java
 package services;
 
 import models.User;
+import utils.DBConnection;
+import utils.DatabaseInitializer;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AuthService {
-    private Connection connection;
+    private final Connection connection;
 
     public AuthService() {
         try {
-            // Connexion à la base de données (MySQL)
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/restaurant_db",
-                    "root",
-                    ""
-            );
+            DatabaseInitializer.initialize(); // Crée BDD + tables si besoin
+            connection = DBConnection.getConnection();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Erreur de connexion à la BDD", e);
         }
     }
 
@@ -34,16 +32,18 @@ public class AuthService {
             return false;
         }
     }
+
     public User getUser(String username) {
         String query = "SELECT * FROM users WHERE username = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                String uname = rs.getString("username");
-                String pwd = rs.getString("password");
-                boolean isAdmin = rs.getBoolean("is_admin");
-                return new User(uname, pwd, isAdmin);
+                return new User(
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getBoolean("is_admin")
+                );
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -59,6 +59,64 @@ public class AuthService {
             stmt.setBoolean(3, isAdmin);
             stmt.executeUpdate();
             return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+        String query = "SELECT * FROM users";
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
+            while (rs.next()) {
+                User user = new User(
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getBoolean("is_admin")
+                );
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+
+    public boolean updateUser(String oldUsername, String newUsername, String newPassword, boolean isAdmin) {
+        String query = newPassword.isEmpty()
+                ? "UPDATE users SET username = ?, is_admin = ? WHERE username = ?"
+                : "UPDATE users SET username = ?, password = ?, is_admin = ? WHERE username = ?";
+
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, newUsername);
+            int index = 2;
+
+            if (!newPassword.isEmpty()) {
+                stmt.setString(2, newPassword);
+                stmt.setBoolean(3, isAdmin);
+                stmt.setString(4, oldUsername);
+            } else {
+                stmt.setBoolean(2, isAdmin);
+                stmt.setString(3, oldUsername);
+            }
+
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteUser(String username) {
+        String query = "DELETE FROM users WHERE username = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, username);
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
