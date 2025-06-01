@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
@@ -35,4 +36,5 @@
         <Button text="Modifier" layoutX="400.0" layoutY="325.0" onAction="#handleUpdateUser" />
         <Button text="Supprimer" layoutX="490.0" layoutY="325.0" onAction="#handleDeleteUser" />
     </children>
+
 </Pane>
