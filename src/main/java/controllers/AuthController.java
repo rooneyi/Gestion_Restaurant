@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -21,26 +22,41 @@ public class AuthController implements Initializable {
 
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
-
-    private AuthService authService;
+    @FXML private ChoiceBox<String> roleChoiceBox;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         authService = new AuthService();
+        roleChoiceBox.getItems().addAll("Admin", "Utilisateur");
+        roleChoiceBox.setValue("Utilisateur"); // Valeur par défaut
     }
+
+    private AuthService authService;
+
 
     @FXML
     private void handleLogin() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
+        String selectedRole = roleChoiceBox.getValue();
 
         if (authService.authenticate(username, password)) {
             User user = authService.getUser(username);
-            redirectToDashboard(user);
+
+            if ((user.isAdmin() && "admin".equalsIgnoreCase(selectedRole)) ||
+                    (!user.isAdmin() && "user".equalsIgnoreCase(selectedRole))) {
+
+                utils.Session.getInstance().setUser(user);
+                redirectToDashboard(user);
+            } else {
+                showAlert("Erreur", "Le rôle sélectionné ne correspond pas à l'utilisateur.");
+            }
+
         } else {
             showAlert("Erreur d'authentification", "Identifiants incorrects");
         }
     }
+
 
     private void redirectToDashboard(User user) throws IOException {
         Stage stage = (Stage) usernameField.getScene().getWindow();
