@@ -1,20 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-      xmlns="http://javafx.com/javafx/23.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserDashboardController" >
-    <children>
-        <Label layoutX="244.0" layoutY="171.0" text="Users">
-            <font>
-                <Font name="System Bold" size="36.0" />
-            </font>
-        </Label>
-    </children>
-</Pane>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView editable="true" layoutX="113.0" layoutY="184.0" prefHeight="320.0" prefWidth="762.0" style="-fx-alignment: center;" tableMenuButtonVisible="true">
+        <columns>
+          <TableColumn prefWidth="150.0" style="-fx-border-color: #8f8dab; -fx-alignment: center; -fx-text-till: 1.4 em;" text="Nom" />
+          <TableColumn prefWidth="150.0" style="-fx-border-color: #8f8dab; -fx-alignment: center;" text="Rôle" />
+            <TableColumn prefWidth="150.0" style="-fx-border-color: #8f8dab; -fx-alignment: center;" text="Téléphone" />
+            <TableColumn prefWidth="150.0" style="-fx-border-color: #8f8dab; -fx-alignment: center;" text="Mot de passe" />
+            <TableColumn prefWidth="150.0" style="-fx-border-color: #8f8dab; -fx-alignment: center;" text="Date de création" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="56.0" prefWidth="940.0" style="-fx-border-color: #8f8dab;">
+         <children>
+            <Label alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="262.0" text="Gestion Utilisateur" textFill="#8f8dab">
+               <font>
+                  <Font name="Roboto Light" size="24.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+         </opaqueInsets>
+      </HBox>
+      <JFXButton layoutX="112.0" layoutY="522.0" prefHeight="35.0" prefWidth="111.0" style="-fx-border-color: #C9E24D; -fx-text-fill: Black;" text="Ajouter">
+         <font>
+            <Font name="Roboto Condensed" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="240.0" layoutY="522.0" prefHeight="35.0" prefWidth="111.0" style="-fx-border-color: Blue; -fx-text-fill: Black;" text="Modifier">
+         <font>
+            <Font name="Roboto Condensed" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="367.0" layoutY="521.0" prefHeight="35.0" prefWidth="111.0" style="-fx-border-color: Red; -fx-text-fill: Black;" text="Supprimer">
+         <font>
+            <Font name="Roboto Condensed" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField layoutX="180.0" layoutY="118.0" prefHeight="35.0" prefWidth="696.0" promptText="Recherche " style="-fx-border-radius: 50;">
+         <font>
+            <Font name="Roboto Condensed Light" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TextField>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="139.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/searchmagnifierinterfacesymbol_79894.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>
