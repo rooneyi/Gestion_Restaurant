@@ -1,376 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeDashboardController">
-   <children>
-      <BorderPane prefHeight="595.0" prefWidth="974.0">
-         <top>
-            <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="940.0" style="-fx-border-color: #8f8dab;" BorderPane.alignment="CENTER">
-               <children>
-                  <Label alignment="TOP_RIGHT" prefHeight="50.0" prefWidth="225.0" text="Tableau de Bord" textFill="#8f8dab">
-                     <font>
-                        <Font name="Roboto Light" size="24.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/dash1.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-               </children>
-               <opaqueInsets>
-                  <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-               </opaqueInsets>
-               <BorderPane.margin>
-                  <Insets left="9.0" right="14.0" />
-               </BorderPane.margin>
-            </HBox>
-         </top>
-         <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane layoutX="7.0" layoutY="9.0" prefHeight="522.0" prefWidth="954.0" style="-fx-background-color: #f1f2f6; -fx-border-radius: 20; -fx-border-color: #8f8dab;">
-                     <children>
-                        <Pane layoutX="3.0" layoutY="3.0" prefHeight="215.0" prefWidth="950.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Pane layoutX="374.0" layoutY="67.0" prefHeight="122.0" prefWidth="127.0" style="-fx-background-color: #f1f2f3; -fx-effect: dropshad; -fx-border-radius: 20; -fx-border-color: #8f8dad; -fx-background-radius: 20;">
-                                 <children>
-                                    <VBox alignment="BASELINE_CENTER" layoutX="1.0" layoutY="1.0" prefHeight="123.0" prefWidth="127.0" style="-fx-border-radius: 20;">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../Images/user.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <Label text="Utilisateurs" textFill="#9a9a9a">
-                                             <font>
-                                                <Font name="Roboto Light" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label text="10" textFill="#787fbf">
-                                             <font>
-                                                <Font name="Roboto Light" size="24.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="1.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                       </children>
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <padding>
-                                          <Insets bottom="10.0" />
-                                       </padding>
-                                    </VBox>
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="216.0" layoutY="69.0" prefHeight="122.0" prefWidth="127.0" style="-fx-background-color: #f1f2f3; -fx-effect: dropshad; -fx-border-radius: 20; -fx-border-color: #8f8dad; -fx-background-radius: 20;">
-                                 <children>
-                                    <VBox alignment="BASELINE_CENTER" layoutX="1.0" layoutY="1.0" prefHeight="123.0" prefWidth="127.0" style="-fx-border-radius: 20;">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../Images/user.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <Label text="Admin" textFill="#9a9a9a">
-                                             <font>
-                                                <Font name="Roboto Light" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label text="02" textFill="#787fbf">
-                                             <font>
-                                                <Font name="Roboto Light" size="24.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="1.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                       </children>
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <padding>
-                                          <Insets bottom="10.0" />
-                                       </padding>
-                                    </VBox>
-                                 </children>
-                              </Pane>
-                              <Label layoutX="15.0" layoutY="23.0" text="Utilisateurs" textFill="#cccccc">
-                                 <font>
-                                    <Font name="Roboto Light" size="30.0" />
-                                 </font>
-                              </Label>
-                              <Pane layoutX="530.0" layoutY="69.0" prefHeight="122.0" prefWidth="127.0" style="-fx-background-color: #f1f2f3; -fx-effect: dropshad; -fx-border-radius: 20; -fx-border-color: #8f8dad; -fx-background-radius: 20;">
-                                 <children>
-                                    <VBox alignment="BASELINE_CENTER" layoutX="1.0" layoutY="1.0" prefHeight="123.0" prefWidth="127.0" style="-fx-border-radius: 20;">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../Images/report1.png" />
-                                             </image>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" />
-                                             </VBox.margin>
-                                          </ImageView>
-                                          <Label text="Historique" textFill="#9a9a9a">
-                                             <font>
-                                                <Font name="Roboto Light" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Label text="1500" textFill="#787fbf">
-                                             <font>
-                                                <Font name="Roboto Light" size="24.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="1.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                       </children>
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <padding>
-                                          <Insets bottom="10.0" />
-                                       </padding>
-                                    </VBox>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </Pane>
-                        <Label layoutX="17.0" layoutY="236.0" text="Gestion Stock" textFill="#cccccc">
-                           <font>
-                              <Font name="Roboto Light" size="30.0" />
-                           </font>
-                        </Label>
-                        <Pane layoutX="219.0" layoutY="270.0" prefHeight="122.0" prefWidth="127.0" style="-fx-background-color: #f1f2f3; -fx-effect: dropshad; -fx-border-radius: 20; -fx-border-color: #8f8dad; -fx-background-radius: 20;">
-                           <children>
-                              <VBox alignment="BASELINE_CENTER" layoutX="1.0" layoutY="1.0" prefHeight="123.0" prefWidth="127.0" style="-fx-border-radius: 20;">
-                                 <children>
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/stock_18293704.png" />
-                                       </image>
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" />
-                                       </VBox.margin>
-                                    </ImageView>
-                                    <Label text="Vente du jour" textFill="#9a9a9a">
-                                       <font>
-                                          <Font name="Roboto Light" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="230" textFill="#787fbf">
-                                       <font>
-                                          <Font name="Roboto Light" size="24.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="1.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                 </children>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <padding>
-                                    <Insets bottom="10.0" />
-                                 </padding>
-                              </VBox>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="368.0" layoutY="270.0" prefHeight="122.0" prefWidth="127.0" style="-fx-background-color: #f1f2f3; -fx-effect: dropshad; -fx-border-radius: 20; -fx-border-color: #8f8dad; -fx-background-radius: 20;">
-                           <children>
-                              <VBox alignment="BASELINE_CENTER" layoutX="1.0" layoutY="1.0" prefHeight="123.0" prefWidth="127.0" style="-fx-border-radius: 20;">
-                                 <children>
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/stock_18293704.png" />
-                                       </image>
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" />
-                                       </VBox.margin>
-                                    </ImageView>
-                                    <Label text="Rupture stock" textFill="#9a9a9a">
-                                       <font>
-                                          <Font name="Roboto Light" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="5" textFill="#787fbf">
-                                       <font>
-                                          <Font name="Roboto Light" size="24.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="1.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                 </children>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <padding>
-                                    <Insets bottom="10.0" />
-                                 </padding>
-                              </VBox>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="516.0" layoutY="272.0" prefHeight="122.0" prefWidth="127.0" style="-fx-background-color: #f1f2f3; -fx-effect: dropshad; -fx-border-radius: 20; -fx-border-color: #8f8dad; -fx-background-radius: 20;">
-                           <children>
-                              <VBox alignment="BASELINE_CENTER" layoutX="1.0" layoutY="1.0" prefHeight="123.0" prefWidth="127.0" style="-fx-border-radius: 20;">
-                                 <children>
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/stock_18293704.png" />
-                                       </image>
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" />
-                                       </VBox.margin>
-                                    </ImageView>
-                                    <Label text="Stock Boissons" textFill="#9a9a9a">
-                                       <font>
-                                          <Font name="Roboto Light" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="234" textFill="#787fbf">
-                                       <font>
-                                          <Font name="Roboto Light" size="24.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="1.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                 </children>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <padding>
-                                    <Insets bottom="10.0" />
-                                 </padding>
-                              </VBox>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="664.0" layoutY="273.0" prefHeight="122.0" prefWidth="127.0" style="-fx-background-color: #f1f2f3; -fx-effect: dropshad; -fx-border-radius: 20; -fx-border-color: #8f8dad; -fx-background-radius: 20;">
-                           <children>
-                              <VBox alignment="BASELINE_CENTER" layoutX="1.0" layoutY="1.0" prefHeight="123.0" prefWidth="127.0" style="-fx-border-radius: 20;">
-                                 <children>
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/stock_18293704.png" />
-                                       </image>
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" />
-                                       </VBox.margin>
-                                    </ImageView>
-                                    <Label text="Condiments" textFill="#9a9a9a">
-                                       <font>
-                                          <Font name="Roboto Light" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="5" textFill="#787fbf">
-                                       <font>
-                                          <Font name="Roboto Light" size="24.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="1.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                 </children>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <padding>
-                                    <Insets bottom="10.0" />
-                                 </padding>
-                              </VBox>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="809.0" layoutY="271.0" prefHeight="122.0" prefWidth="127.0" style="-fx-background-color: #f1f2f3; -fx-effect: dropshad; -fx-border-radius: 20; -fx-border-color: #8f8dad; -fx-background-radius: 20;">
-                           <children>
-                              <VBox alignment="BASELINE_CENTER" layoutX="1.0" layoutY="1.0" prefHeight="123.0" prefWidth="127.0" style="-fx-border-radius: 20;">
-                                 <children>
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/report1.png" />
-                                       </image>
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" />
-                                       </VBox.margin>
-                                    </ImageView>
-                                    <Label text="Historique" textFill="#9a9a9a">
-                                       <font>
-                                          <Font name="Roboto Light" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="23450" textFill="#787fbf">
-                                       <font>
-                                          <Font name="Roboto Light" size="24.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="1.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                 </children>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <padding>
-                                    <Insets bottom="10.0" />
-                                 </padding>
-                              </VBox>
-                           </children>
-                        </Pane>
-                        <AnchorPane layoutX="1.0" layoutY="230.0" prefHeight="3.0" prefWidth="919.0" style="-fx-background-color: #cccc;" />
-                     </children>
-                  </AnchorPane>
-               </children>
-            </Pane>
-         </center>
-      </BorderPane>
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeDashboardController" >
+    <children>
+        <Label layoutX="220.0" layoutY="20.0" text="Gestion des Utilisateurs">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+
+        <TableView fx:id="userTable" layoutX="20.0" layoutY="70.0" prefHeight="200.0" prefWidth="560.0">
+            <columns>
+                <TableColumn fx:id="usernameCol" text="Nom d'utilisateur" prefWidth="180" />
+                <TableColumn fx:id="roleCol" text="Rôle" prefWidth="120" />
+            </columns>
+        </TableView>
+
+        <Label layoutX="20.0" layoutY="290.0" text="Nom d'utilisateur:" />
+        <TextField fx:id="usernameField" layoutX="150.0" layoutY="285.0" prefWidth="140.0" />
+
+        <Label layoutX="310.0" layoutY="290.0" text="Mot de passe:" />
+        <PasswordField fx:id="passwordField" layoutX="400.0" layoutY="285.0" prefWidth="140.0" />
+
+        <Label layoutX="20.0" layoutY="330.0" text="Rôle:" />
+        <ChoiceBox fx:id="roleChoiceBox" layoutX="150.0" layoutY="325.0" prefWidth="140.0">
+        </ChoiceBox>
+
+        <Button text="Ajouter" layoutX="310.0" layoutY="325.0" onAction="#handleAddUser" />
+        <Button text="Modifier" layoutX="400.0" layoutY="325.0" onAction="#handleUpdateUser" />
+        <Button text="Supprimer" layoutX="490.0" layoutY="325.0" onAction="#handleDeleteUser" />
+    </children>
+
 </Pane>
