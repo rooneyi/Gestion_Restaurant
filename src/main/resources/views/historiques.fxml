@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="13.0" prefHeight="39.0" prefWidth="932.0" style="-fx-border-color: #8f8dab;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="262.0" text="Historiques" textFill="#8f8dab">
+               <font>
+                  <Font name="Roboto Light Italic" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/data1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+         </opaqueInsets>
+      </HBox>
+      <JFXButton layoutX="29.0" layoutY="520.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: green;" text="Ajouter" AnchorPane.leftAnchor="20.0">
+         <font>
+            <Font name="Roboto Condensed Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/add1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="184.0" layoutY="520.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: red;" text="Supprimer">
+         <font>
+            <Font name="Roboto Condensed Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/icons8_delete_sign_50px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="350.0" layoutY="519.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: Blue;" text="Modifier">
+         <font>
+            <Font name="Roboto Condensed Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="513.0" layoutY="519.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: #ccc;" text="Imprimer">
+         <font>
+            <Font name="Roboto Condensed Bold" size="14.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/backup.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TabPane layoutX="78.0" layoutY="52.0" prefHeight="459.0" prefWidth="930.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+        <tabs>
+          <Tab text="Vente du jour">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;" />
+            </content>
+          </Tab>
+          <Tab text="Stock Faible">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
