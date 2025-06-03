@@ -85,20 +85,20 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Mot de passe" textFill="#cccccc">
+                  <Label text="Prix Unitaire" textFill="#cccccc">
                      <font>
                         <Font name="Roboto Condensed" size="18.0" />
                      </font>
                   </Label>
-                  <PasswordField prefHeight="40.0" prefWidth="272.0" promptText="Mot de passe">
+                  <PasswordField prefHeight="40.0" promptText="Votre mot de passe">
+                     <font>
+                        <Font name="Roboto Condensed" size="18.0" />
+                     </font>
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
                   </PasswordField>
-                  <Label text="Date de Création" textFill="#cccccc">
+                  <Label text="Date" textFill="#cccccc">
                      <font>
                         <Font name="Roboto Condensed" size="18.0" />
                      </font>
