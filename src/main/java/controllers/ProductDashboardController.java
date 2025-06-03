@@ -71,19 +71,22 @@ public class ProductDashboardController implements Initializable {
         double newPrice = Double.parseDouble(priceField.getText());
         int newQuantity = Integer.parseInt(quantityField.getText());
 
-        productService.updateProduct(selectedProduct.getName(), new Product(newName, newPrice, newQuantity));
+        Product updated = new Product(selectedProduct.getId(), newName, newPrice, newQuantity);
+        productService.updateProduct(updated);
         refreshProductTable();
         clearFields();
     }
+
 
     @FXML
     private void handleDeleteProduct() {
         if (selectedProduct == null) return;
 
-        productService.deleteProduct(selectedProduct.getName());
+        productService.deleteProduct(String.valueOf((int)selectedProduct.getId()));
         refreshProductTable();
         clearFields();
     }
+
 
     private void refreshProductTable() {
         productTable.setItems(FXCollections.observableArrayList(productService.getAllProducts()));

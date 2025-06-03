@@ -157,9 +157,4 @@ public class DashBoardController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
-
-
-
-
-
 }

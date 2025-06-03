@@ -35,8 +35,8 @@ public class ProductService {
                 list.add(new Product(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        (double) rs.getInt("quantity"),
-                        (int) rs.getDouble("price")
+                        rs.getDouble("price"),
+                        rs.getInt("quantity")
                 ));
             }
         } catch (SQLException e) {
@@ -47,10 +47,10 @@ public class ProductService {
 
     public boolean addProduct(Product p) {
         try (PreparedStatement stmt = connection.prepareStatement(
-                "INSERT INTO products (name,  price, quantity,) VALUES (?, ?, ?)")) {
+                "INSERT INTO products (name,price,quantity) VALUES (?, ?, ?)")) {
             stmt.setString(1, p.getName());
-            stmt.setInt(2, p.getQuantity());
-            stmt.setDouble(3, p.getPrice());
+            stmt.setDouble(2, p.getPrice());
+            stmt.setInt(3, p.getQuantity());
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,7 +58,7 @@ public class ProductService {
         }
     }
 
-    public boolean updateProduct(String name, Product p) {
+    public boolean updateProduct(Product p) {
         try (PreparedStatement stmt = connection.prepareStatement(
                 "UPDATE products SET name=?, price=?, quantity=? WHERE id=?")) {
             stmt.setString(1, p.getName());

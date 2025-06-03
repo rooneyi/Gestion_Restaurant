@@ -16,9 +16,11 @@ public class Product {
         this.quantity = new SimpleIntegerProperty(quantity);
     }
 
+
     public Product(String name, double price, int quantity) {
         this(0, name, price, quantity);
     }
+
 
     // Propriétés JavaFX pour TableView
     public IntegerProperty idProperty() { return id; }
