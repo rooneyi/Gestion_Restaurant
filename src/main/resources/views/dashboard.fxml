@@ -33,7 +33,7 @@
                         </ImageView>
                             </children>
                         </Pane>
-                        <HBox layoutX="239.0" layoutY="1.0" prefHeight="40.0" prefWidth="677.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                        <HBox layoutX="239.0" layoutY="1.0" prefHeight="40.0" prefWidth="823.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                             <children>
                                 <JFXButton onAction="#home" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Tableau de bord">
                                     <graphic>
@@ -51,7 +51,7 @@
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/add1.png" />
+                                                <Image url="@../Images/burger.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -83,19 +83,19 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                                <JFXButton prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Produits" onAction="#produits">
-                                    <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../Images/user.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
-                                </JFXButton>
-                        <JFXButton layoutX="418.0" layoutY="10.0" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #ee6a8c;" styleClass="menuItem" text="Déconnexion" onAction="#handleLogout">
+                        <JFXButton layoutX="418.0" layoutY="10.0" onAction="#historiques" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Historiques">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/data1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton layoutX="418.0" layoutY="10.0" onAction="#handleLogout" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #ee6a8c;" styleClass="menuItem" text="Déconnexion">
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -110,7 +110,7 @@
 
                             </children>
                         </HBox>
-                        <Label fx:id="Menu" layoutX="14.0" layoutY="36.0" prefHeight="22.0" prefWidth="92.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.007998687500045" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="618.063980710938" AnchorPane.topAnchor="36.0">
+                        <Label fx:id="Menu" layoutX="14.0" layoutY="36.0" prefHeight="22.0" prefWidth="133.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1003.0" AnchorPane.topAnchor="36.0">
                             <graphic>
                                 <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -125,7 +125,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                         </Label>
-                        <Label fx:id="MenuClose" layoutX="14.0" layoutY="36.0" prefHeight="22.0" prefWidth="451.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="685.0" AnchorPane.topAnchor="36.0">
+                        <Label fx:id="MenuClose" layoutX="14.0" layoutY="36.0" prefHeight="22.0" prefWidth="89.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1047.0" AnchorPane.topAnchor="36.0">
                             <graphic>
                                 <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -146,7 +146,7 @@
             <left>
                 <AnchorPane fx:id="slider" prefHeight="362.0" prefWidth="176.0" style="-fx-background-color: #0A4969;" BorderPane.alignment="CENTER">
                     <children>
-                        <VBox layoutX="14.0" layoutY="105.0" prefHeight="490.0" prefWidth="176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="105.0">
+                        <VBox layoutX="14.0" layoutY="99.0" prefHeight="445.0" prefWidth="176.0" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="99.0">
                             <children>
                                 <JFXButton alignment="BASELINE_LEFT" onAction="#home" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Tableau de Bord" textFill="WHITE">
                                     <font>
@@ -170,7 +170,7 @@
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/add.png" />
+                                                <Image url="@../Images/menu.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -208,46 +208,50 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="124.0" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Parametre" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Images/setting.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </JFXButton>
-                        <AnchorPane prefHeight="301.0" prefWidth="176.0">
+                        <AnchorPane prefHeight="294.0" prefWidth="176.0">
                            <children>
-                              <VBox alignment="CENTER" layoutX="38.0" layoutY="120.0" prefHeight="73.0" prefWidth="176.0" style="-fx-background-color: #f1f2f6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                 <children>
-                                    <JFXButton alignment="CENTER" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #ee6a8c;" styleClass="sidebarItem" text="Déconnexion" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Bold" size="15.0" />
-                                       </font>
-                                       <graphic>
-                                          <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../Images/userpassword_deusuari_787.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </JFXButton>
-                                 </children>
-                              </VBox>
+                              <JFXButton alignment="BASELINE_LEFT" onAction="#historiques" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Historiques" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/data.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
                            </children>
                         </AnchorPane>
                             </children>
                         </VBox>
+                  <AnchorPane layoutX="-2.0" layoutY="488.0" prefHeight="107.0" prefWidth="176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="500.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutY="44.0" prefHeight="62.0" prefWidth="176.0" style="-fx-background-color: #f1f2f6;">
+                           <children>
+                              <JFXButton alignment="CENTER" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #ee6a8c;" styleClass="sidebarItem" text="Déconnexion" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/userpassword_deusuari_787.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXButton>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
                     </children>
                 </AnchorPane>
             </left>

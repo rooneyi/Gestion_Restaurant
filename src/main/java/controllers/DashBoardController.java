@@ -154,6 +154,11 @@ public class DashBoardController implements Initializable {
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(root);
     }
+    public void historiques (javafx.event.ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/historiques.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(root);
+    }
     @FXML
     private void handleLogout() throws IOException {
         // 🔐 Vider la session

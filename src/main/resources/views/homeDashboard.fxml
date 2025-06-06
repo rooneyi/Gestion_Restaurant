@@ -1,41 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-      xmlns="http://javafx.com/javafx/23.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeDashboardController" >
-    <children>
-        <Label layoutX="220.0" layoutY="20.0" text="Gestion des Utilisateurs">
-            <font>
-                <Font name="System Bold" size="24.0" />
-            </font>
-        </Label>
-
-        <TableView fx:id="userTable" layoutX="20.0" layoutY="70.0" prefHeight="200.0" prefWidth="560.0">
-            <columns>
-                <TableColumn fx:id="usernameCol" text="Nom d'utilisateur" prefWidth="180" />
-                <TableColumn fx:id="roleCol" text="Rôle" prefWidth="120" />
-            </columns>
-        </TableView>
-
-        <Label layoutX="20.0" layoutY="290.0" text="Nom d'utilisateur:" />
-        <TextField fx:id="usernameField" layoutX="150.0" layoutY="285.0" prefWidth="140.0" />
-
-        <Label layoutX="310.0" layoutY="290.0" text="Mot de passe:" />
-        <PasswordField fx:id="passwordField" layoutX="400.0" layoutY="285.0" prefWidth="140.0" />
-
-        <Label layoutX="20.0" layoutY="330.0" text="Rôle:" />
-        <ChoiceBox fx:id="roleChoiceBox" layoutX="150.0" layoutY="325.0" prefWidth="140.0">
-        </ChoiceBox>
-
-        <Button text="Ajouter" layoutX="310.0" layoutY="325.0" onAction="#handleAddUser" />
-        <Button text="Modifier" layoutX="400.0" layoutY="325.0" onAction="#handleUpdateUser" />
-        <Button text="Supprimer" layoutX="490.0" layoutY="325.0" onAction="#handleDeleteUser" />
-    </children>
-
-</Pane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="5.0" layoutY="23.0" prefHeight="168.0" prefWidth="960.0" style="-fx-background-color: White; -fx-border-radius: 20; -fx-background-radius: 20;" AnchorPane.bottomAnchor="404.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="23.0">
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="0.46052631735801697" green="0.4434697926044464" blue="0.4434697926044464" />
+               </color>
+            </InnerShadow>
+         </effect>
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="14.0" prefHeight="140.0" prefWidth="936.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="169.0" prefWidth="180.0">
+                     <children>
+                        <Label text="Utilisateurs" textFill="#cccccc">
+                           <font>
+                              <Font name="Roboto Condensed Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="BOTTOM_CENTER" text="400" textFill="#787fbf">
+                           <font>
+                              <Font name="Roboto Condensed" size="30.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Line endX="95.25735473632812" endY="-1.23651123046875" fill="#001aff" startX="95.05024719238281" startY="-132.06983947753906" stroke="#001aff">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Line>
+                  <VBox alignment="CENTER" prefHeight="169.0" prefWidth="180.0">
+                     <children>
+                        <Label text="Vente du jour" textFill="#cccccc">
+                           <font>
+                              <Font name="Roboto Condensed Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="BOTTOM_CENTER" text="1000" textFill="#787fbf">
+                           <font>
+                              <Font name="Roboto Condensed" size="30.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/add1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Line endX="95.25735473632812" endY="-1.23651123046875" fill="#001aff" startX="95.05024719238281" startY="-132.06983947753906" stroke="#001aff">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Line>
+                  <VBox alignment="CENTER" prefHeight="169.0" prefWidth="180.0">
+                     <children>
+                        <Label text="stock faible" textFill="#cccccc">
+                           <font>
+                              <Font name="Roboto Condensed Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="BOTTOM_CENTER" text="40" textFill="#787fbf">
+                           <font>
+                              <Font name="Roboto Condensed" size="30.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/stock_18293704.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Line endX="95.25735473632812" endY="-1.23651123046875" fill="#001aff" startX="95.05024719238281" startY="-132.06983947753906" stroke="#001aff">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Line>
+                  <VBox alignment="CENTER" prefHeight="169.0" prefWidth="180.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="29.0" prefWidth="168.0" text="Rupture de stock" textFill="#cccccc">
+                           <font>
+                              <Font name="Roboto Condensed Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="BOTTOM_CENTER" text="10" textFill="#787fbf">
+                           <font>
+                              <Font name="Roboto Condensed" size="30.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/add1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Line endX="95.25735473632812" endY="-1.23651123046875" fill="#001aff" startX="95.05024719238281" startY="-132.06983947753906" stroke="#001aff">
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Line>
+                  <VBox alignment="CENTER" prefHeight="169.0" prefWidth="180.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="29.0" prefWidth="168.0" text=" Total argent" textFill="#cccccc">
+                           <font>
+                              <Font name="Roboto Condensed Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label alignment="BOTTOM_CENTER" text="2500" textFill="#787fbf">
+                           <font>
+                              <Font name="Roboto Condensed" size="30.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/report1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children></Pane>
+      <Pane layoutX="21.0" layoutY="206.0" prefHeight="375.0" prefWidth="419.0" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="210.0">
+         <children>
+            <ImageView fitHeight="358.0" fitWidth="419.0" layoutX="47.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/3929637.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="452.0" layoutY="218.0" prefHeight="173.0" prefWidth="504.0" style="-fx-background-color: WHITE;">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutY="37.0" prefHeight="100.0" prefWidth="505.0">
+               <children>
+                  <Label text="Bienvenu " textFill="#838383">
+                     <font>
+                        <Font name="Roboto Condensed Bold" size="48.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Admin">
+                     <font>
+                        <Font name="Roboto Condensed Bold" size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
