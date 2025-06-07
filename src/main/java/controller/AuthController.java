@@ -1,5 +1,5 @@
 // controllers/AuthController.java
-package controllers;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;

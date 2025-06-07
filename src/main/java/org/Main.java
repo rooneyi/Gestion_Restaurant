@@ -17,7 +17,7 @@ public class Main extends Application {
 
         DatabaseInitializer.initialize(); // <-- ajoute cette ligne AVANT le chargement FXML
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/dashboard.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/auth.fxml")));
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
         root.setOnMousePressed(event -> {

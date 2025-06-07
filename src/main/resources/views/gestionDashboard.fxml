@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionDashboardController">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="13.0" prefHeight="39.0" prefWidth="932.0" style="-fx-border-color: #8f8dab;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <children>
@@ -53,7 +53,7 @@
                         <Font name="Roboto Condensed" size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="40.0" promptText="Nom du produit">
+                  <TextField fx:id="designationField" prefHeight="40.0" promptText="Nom du produit">
                      <font>
                         <Font name="Roboto Condensed" size="18.0" />
                      </font>
@@ -66,7 +66,7 @@
                         <Font name="Roboto Condensed" size="18.0" />
                      </font>
                   </Label>
-                  <ChoiceBox prefHeight="40.0" prefWidth="273.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: #8f8dab;">
+                  <ChoiceBox fx:id="categorieChoiceBox" prefHeight="40.0" prefWidth="273.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: #8f8dab;">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -76,7 +76,7 @@
                         <Font name="Roboto Condensed" size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="40.0" promptText="Nombre de Bouteilles">
+                  <TextField fx:id="quantityField" prefHeight="40.0" promptText="Nombre de Bouteilles">
                      <font>
                         <Font name="Roboto Condensed" size="18.0" />
                      </font>
@@ -89,7 +89,7 @@
                         <Font name="Roboto Condensed" size="18.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="20.0" layoutY="43.0" prefHeight="40.0" promptText="Prix unitaire du produit">
+                  <TextField fx:id="priceField" layoutX="20.0" layoutY="43.0" prefHeight="40.0" promptText="Prix unitaire du produit">
                      <font>
                         <Font name="Roboto Condensed" size="18.0" />
                      </font>
@@ -102,27 +102,27 @@
                         <Font name="Roboto Condensed" size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker prefHeight="40.0" prefWidth="283.0" />
+                  <DatePicker fx:id="datePicker" prefHeight="40.0" prefWidth="283.0" />
                </children>
             </VBox>
          </children>
       </Pane>
-      <TableView editable="true" layoutX="326.0" layoutY="134.0" prefHeight="361.0" prefWidth="624.0" tableMenuButtonVisible="true" AnchorPane.rightAnchor="20.0">
+      <TableView fx:id="productsTable" editable="true" layoutX="326.0" layoutY="134.0" prefHeight="361.0" prefWidth="624.0" tableMenuButtonVisible="true" AnchorPane.rightAnchor="20.0">
          <columns>
-            <TableColumn minWidth="140.0" prefWidth="75.0" text="Désignations" />
-            <TableColumn minWidth="100.0" prefWidth="75.0" text="Catégorie" />
-            <TableColumn minWidth="20.0" prefWidth="75.0" text="Stock" />
-            <TableColumn minWidth="100.0" prefWidth="75.0" text="Prix Unitaire" />
-            <TableColumn minWidth="100.0" prefWidth="75.0" text="Prix Total" />
-            <TableColumn minWidth="100.0" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="colDesignation" text="Désignation" prefWidth="150.0"/>
+            <TableColumn fx:id="colCategorie" prefWidth="100.0" text="Catégorie" />
+            <TableColumn fx:id="colStock" prefWidth="75.0" text="Stock" />
+            <TableColumn fx:id="colPrixUnitaire" prefWidth="100.0" text="Prix Unitaire" />
+            <TableColumn fx:id="colPrixTotal" prefWidth="100.0" text="Prix Total" />
+            <TableColumn fx:id="colDate" prefWidth="100.0" text="Date" />
          </columns>
       </TableView>
-      <TextField layoutX="633.0" layoutY="74.0" prefHeight="35.0" prefWidth="317.0" promptText="Votre Recherche" AnchorPane.leftAnchor="633.0" AnchorPane.rightAnchor="20.0">
+      <TextField fx:id="filterField" layoutX="633.0" layoutY="74.0" prefHeight="35.0" prefWidth="317.0" promptText="Votre Recherche" AnchorPane.leftAnchor="633.0" AnchorPane.rightAnchor="20.0">
          <font>
             <Font name="Roboto Condensed" size="18.0" />
          </font>
       </TextField>
-      <JFXButton layoutX="29.0" layoutY="520.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: green;" text="Ajouter" AnchorPane.leftAnchor="20.0">
+      <JFXButton layoutX="29.0" layoutY="520.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: green;" text="Ajouter" AnchorPane.leftAnchor="20.0" onAction="#handleAddProduct">
          <font>
             <Font name="Roboto Condensed Bold" size="14.0" />
          </font>
@@ -137,7 +137,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton layoutX="184.0" layoutY="520.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: red;" text="Supprimer">
+      <JFXButton onAction="#handleDeleteProduct" layoutX="184.0" layoutY="520.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: red;" text="Supprimer">
          <font>
             <Font name="Roboto Condensed Bold" size="14.0" />
          </font>
@@ -152,7 +152,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton layoutX="350.0" layoutY="519.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: Blue;" text="Modifier">
+      <JFXButton onAction="#handleUpdateProduct" layoutX="350.0" layoutY="519.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: Blue;" text="Modifier">
          <font>
             <Font name="Roboto Condensed Bold" size="14.0" />
          </font>
@@ -190,6 +190,6 @@
             <InnerShadow />
          </effect>
       </Label>
-      <ChoiceBox layoutX="386.0" layoutY="77.0" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f1f2f6; -fx-border-color: blue;" />
+      <ChoiceBox fx:id="filterChoiceBox" layoutX="386.0" layoutY="77.0" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f1f2f6; -fx-border-color: blue;" />
    </children>
 </AnchorPane>
