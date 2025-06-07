@@ -54,11 +54,24 @@ public class DatabaseInitializer {
         quantity INT NOT NULL
     );
 """;
+
+                String createHistoriqueTable = """
+                        CREATE TABLE historique_suppression (
+                        id INT PRIMARY KEY AUTO_INCREMENT,
+                        product_id INT,
+                        name VARCHAR(100),
+                        motif TEXT,
+                        date_suppression DATE,
+                        FOREIGN KEY (product_id) REFERENCES products(id)
+                );
+                """;
+
                 stmt.executeUpdate(createProductTable);
 
 
                 stmt.executeUpdate(createMenuTable);
                 stmt.executeUpdate(createUserTable);
+                stmt.executeUpdate(createHistoriqueTable);
 
                 System.out.println("✅ Tables vérifiées/créées");
 

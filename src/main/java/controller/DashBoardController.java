@@ -1,4 +1,4 @@
-package controllers;
+package controller;
 
 /*
 <AnchorPane prefHeight="660.0" prefWidth="1150.0" stylesheets="@styleDashBoard.css"

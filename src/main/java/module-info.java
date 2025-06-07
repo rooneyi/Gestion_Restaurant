@@ -12,11 +12,12 @@ module org.example.gestion_restaurant {
     requires java.sql;
 
     // Exportez le package contenant vos contrôleurs
-    exports controllers to javafx.fxml;
+    exports controller to javafx.fxml;
     exports org;
 
     // Ouvrez le package contenant vos fichiers FXML si nécessaire
-    opens controllers to javafx.fxml;
+    opens models to javafx.base; // 👈 autorise javafx.base à accéder au package models
+    opens controller to javafx.fxml;
     opens org to javafx.fxml;
 
 }
