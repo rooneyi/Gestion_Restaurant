@@ -83,6 +83,18 @@ CREATE TABLE IF NOT EXISTS products (
             return false;
         }
     }
+    public void logHistorique(String action, String nomProduit, LocalDate date) {
+        String sql = "INSERT INTO historique_actions (action, produit, date_action) VALUES (?, ?, ?)";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, action);
+            stmt.setString(2, nomProduit);
+            stmt.setDate(3, Date.valueOf(date));
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public boolean enregistrerSuppressionHistorique(int productId, String name, String motif, LocalDate dateSuppression) {
         String sql = "INSERT INTO historique_suppression (product_id, name, motif, date_suppression) VALUES (?, ?, ?, ?)";
