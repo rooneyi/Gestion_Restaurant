@@ -38,12 +38,14 @@ public class DatabaseInitializer {
 
                 // Table User (optionnelle pour login si besoin)
                 String createUserTable = """
-    CREATE TABLE IF NOT EXISTS users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        username VARCHAR(100) UNIQUE NOT NULL,
-        password VARCHAR(255) NOT NULL,
-        is_admin BOOLEAN DEFAULT FALSE
-    );
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    is_admin BOOLEAN DEFAULT FALSE,
+    created_at DATE NOT NULL
+);
+
 """;
 
                 String createProductTable = """
@@ -56,7 +58,7 @@ public class DatabaseInitializer {
 """;
 
                 String createHistoriqueTable = """
-                        CREATE TABLE historique_suppression (
+                        CREATE TABLE IF NOT EXISTS historique_suppression (
                         id INT PRIMARY KEY AUTO_INCREMENT,
                         product_id INT,
                         name VARCHAR(100),

@@ -27,12 +27,13 @@ public class AuthController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         authService = new AuthService();
+        authService.createUser("admin", "admin123", true); // username, password, role
+        authService = new AuthService();
         roleChoiceBox.getItems().addAll("Admin", "Utilisateur");
-        roleChoiceBox.setValue("Utilisateur"); // Valeur par défaut
+        roleChoiceBox.setValue("Utilisateur");
     }
 
     private AuthService authService;
-
 
     @FXML
     private void handleLogin() throws IOException {

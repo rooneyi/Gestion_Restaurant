@@ -150,7 +150,7 @@ public class DashBoardController implements Initializable {
     }
 
     public void utilisateurs (javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/views/userDashBoard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/views/gestion_users.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(root);
     }

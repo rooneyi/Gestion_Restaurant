@@ -3,6 +3,7 @@ package services;
 import models.User;
 import utils.DBConnection;
 import utils.DatabaseInitializer;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,16 +22,18 @@ public class AuthService {
     }
 
     public boolean authenticate(String username, String password) {
-        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+        String query = "SELECT password FROM users WHERE username = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, username);
-            stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
-            return rs.next();
+            if (rs.next()) {
+                String hashedPassword = rs.getString("password");
+                return BCrypt.checkpw(password, hashedPassword);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
+        return false;
     }
 
     public User getUser(String username) {
@@ -42,8 +45,10 @@ public class AuthService {
                 return new User(
                         rs.getString("username"),
                         rs.getString("password"),
-                        rs.getBoolean("is_admin")
-                );
+                        rs.getBoolean("is_admin"),
+                        rs.getDate("createdAt").toLocalDate()
+
+                        );
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,10 +57,11 @@ public class AuthService {
     }
 
     public boolean createUser(String username, String password, boolean isAdmin) {
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         String query = "INSERT INTO users (username, password, is_admin) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, username);
-            stmt.setString(2, password);
+            stmt.setString(2, hashedPassword);
             stmt.setBoolean(3, isAdmin);
             stmt.executeUpdate();
             return true;
@@ -75,7 +81,8 @@ public class AuthService {
                 User user = new User(
                         rs.getString("username"),
                         rs.getString("password"),
-                        rs.getBoolean("is_admin")
+                        rs.getBoolean("is_admin"),
+                        rs.getDate("createdAt").toLocalDate()
                 );
                 users.add(user);
             }
@@ -92,10 +99,9 @@ public class AuthService {
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, newUsername);
-            int index = 2;
-
             if (!newPassword.isEmpty()) {
-                stmt.setString(2, newPassword);
+                String hashed = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+                stmt.setString(2, hashed);
                 stmt.setBoolean(3, isAdmin);
                 stmt.setString(4, oldUsername);
             } else {
