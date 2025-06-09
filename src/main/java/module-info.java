@@ -10,6 +10,7 @@ module org.example.gestion_restaurant {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires java.sql;
+    requires jbcrypt;
 
     // Exportez le package contenant vos contrôleurs
     exports controller to javafx.fxml;
