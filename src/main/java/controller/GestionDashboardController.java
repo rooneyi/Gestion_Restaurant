@@ -1,14 +1,18 @@
 package controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.beans.property.ReadOnlyDoubleWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import models.Product;
 import services.ProductService;
 
@@ -17,14 +21,15 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class GestionDashboardController implements Initializable {
 
+    @FXML private JFXButton printButton;
     @FXML private ChoiceBox<String> filterChoiceBox;
     @FXML private ChoiceBox<String> categorieChoiceBox;
     @FXML private DatePicker datePicker;
     @FXML private TableView<Product> productsTable;
-
     @FXML private TextField designationField;
     @FXML private TextField quantityField;
     @FXML private TextField priceField;
@@ -37,6 +42,8 @@ public class GestionDashboardController implements Initializable {
     @FXML private TableColumn<Product, Double> colPrixTotal;
     @FXML private TableColumn<Product, String> colDate;
 
+    @FXML private VBox tableContainer; // Needed for printing
+
     private ProductService productService;
     private Product selectedProduct;
 
@@ -44,20 +51,15 @@ public class GestionDashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             productService = new ProductService();
-
-            // Initialisation des ChoiceBox
             filterChoiceBox.getItems().addAll("Tous", "Aliments", "Boissons", "Desserts");
             categorieChoiceBox.getItems().addAll("Aliments", "Boissons", "Desserts");
 
-            // Configuration des colonnes
             colDesignation.setCellValueFactory(new PropertyValueFactory<>("name"));
             colCategorie.setCellValueFactory(new PropertyValueFactory<>("category"));
             colStock.setCellValueFactory(new PropertyValueFactory<>("quantity"));
             colPrixUnitaire.setCellValueFactory(new PropertyValueFactory<>("price"));
-            colPrixTotal.setCellValueFactory(data ->
-                    new ReadOnlyDoubleWrapper(data.getValue().getPrice() * data.getValue().getQuantity()).asObject());
-            colDate.setCellValueFactory(data ->
-                    new SimpleStringProperty(data.getValue().getDate().toString()));
+            colPrixTotal.setCellValueFactory(data -> new ReadOnlyDoubleWrapper(data.getValue().getPrice() * data.getValue().getQuantity()).asObject());
+            colDate.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDate().toString()));
 
             filterChoiceBox.getSelectionModel().selectFirst();
             filterField.textProperty().addListener((obs, oldVal, newVal) -> filterProducts());
@@ -86,7 +88,6 @@ public class GestionDashboardController implements Initializable {
     private void handleAddProduct() {
         try {
             if (!validateFields()) return;
-
             Product product = new Product(
                     designationField.getText(),
                     Double.parseDouble(priceField.getText()),
@@ -94,8 +95,8 @@ public class GestionDashboardController implements Initializable {
                     categorieChoiceBox.getValue(),
                     datePicker.getValue()
             );
-
             if (productService.addProduct(product)) {
+                productService.logHistorique("Ajout", product.getName(), LocalDate.now());
                 refreshProductTable();
                 clearFields();
                 showAlert("Produit ajouté avec succès", Alert.AlertType.INFORMATION);
@@ -114,17 +115,15 @@ public class GestionDashboardController implements Initializable {
             showAlert("Aucun produit sélectionné");
             return;
         }
-
         try {
             if (!validateFields()) return;
-
             selectedProduct.setName(designationField.getText());
             selectedProduct.setCategory(categorieChoiceBox.getValue());
             selectedProduct.setQuantity(Integer.parseInt(quantityField.getText()));
             selectedProduct.setPrice(Double.parseDouble(priceField.getText()));
             selectedProduct.setDate(datePicker.getValue());
-
             if (productService.updateProduct(selectedProduct)) {
+                productService.logHistorique("Modification", selectedProduct.getName(), LocalDate.now());
                 refreshProductTable();
                 clearFields();
                 showAlert("Produit mis à jour", Alert.AlertType.INFORMATION);
@@ -141,29 +140,22 @@ public class GestionDashboardController implements Initializable {
             showAlert("Aucun produit sélectionné");
             return;
         }
-
-        // Boîte de dialogue pour le motif
         TextInputDialog motifDialog = new TextInputDialog();
         motifDialog.setTitle("Suppression du produit");
         motifDialog.setHeaderText("Motif de la suppression");
         motifDialog.setContentText("Veuillez entrer le motif :");
-
         motifDialog.showAndWait().ifPresent(motif -> {
             if (motif.trim().isEmpty()) {
                 showAlert("Le motif est obligatoire");
                 return;
             }
-
             try {
-                // Enregistrer l’historique
                 boolean historiqueOk = productService.enregistrerSuppressionHistorique(
                         selectedProduct.getId(),
                         selectedProduct.getName(),
                         motif,
                         LocalDate.now()
                 );
-
-                // Supprimer le produit
                 if (historiqueOk && productService.deleteProduct(selectedProduct.getId())) {
                     refreshProductTable();
                     clearFields();
@@ -178,17 +170,26 @@ public class GestionDashboardController implements Initializable {
         });
     }
 
+    @FXML
+    private void handlePrintTable() {
+        PrinterJob job = PrinterJob.createPrinterJob();
+        if (job != null && job.showPrintDialog(productsTable.getScene().getWindow())) {
+            boolean success = job.printPage(tableContainer);
+            if (success) {
+                job.endJob();
+                showAlert("Impression réussie", Alert.AlertType.INFORMATION);
+            } else {
+                showAlert("Échec de l'impression");
+            }
+        }
+    }
 
     private boolean validateFields() {
-        if (designationField.getText().isEmpty() ||
+        return !(designationField.getText().isEmpty() ||
                 priceField.getText().isEmpty() ||
                 quantityField.getText().isEmpty() ||
                 categorieChoiceBox.getValue() == null ||
-                datePicker.getValue() == null) {
-            showAlert("Veuillez remplir tous les champs");
-            return false;
-        }
-        return true;
+                datePicker.getValue() == null);
     }
 
     private void refreshProductTable() {
@@ -203,25 +204,14 @@ public class GestionDashboardController implements Initializable {
     private void filterProducts() {
         String keyword = filterField.getText().toLowerCase();
         String filter = filterChoiceBox.getValue();
-
-        if (keyword.isEmpty() && ("Tous".equals(filter) || filter == null)) {
-            refreshProductTable();
-            return;
-        }
-
         List<Product> filtered = productService.getAllProducts().stream()
-                .filter(p -> {
-                    boolean matchesKeyword = keyword.isEmpty() ||
-                            p.getName().toLowerCase().contains(keyword) ||
-                            p.getCategory().toLowerCase().contains(keyword);
-                    boolean matchesCategory = "Tous".equals(filter) || p.getCategory().equals(filter);
-                    return matchesKeyword && matchesCategory;
-                })
-                .toList();
-
-        productsTable.setItems(FXCollections.observableArrayList(filtered)); // <-- Ajoute ceci
+                .filter(p -> (keyword.isEmpty() ||
+                        p.getName().toLowerCase().contains(keyword) ||
+                        p.getCategory().toLowerCase().contains(keyword)) &&
+                        ("Tous".equals(filter) || p.getCategory().equals(filter)))
+                .collect(Collectors.toList());
+        productsTable.setItems(FXCollections.observableArrayList(filtered));
     }
-
 
     private void clearFields() {
         designationField.clear();

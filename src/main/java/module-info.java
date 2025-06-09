@@ -11,6 +11,7 @@ module org.example.gestion_restaurant {
     requires eu.hansolo.tilesfx;
     requires java.sql;
     requires jbcrypt;
+    requires com.jfoenix;
 
     // Exportez le package contenant vos contrôleurs
     exports controller to javafx.fxml;

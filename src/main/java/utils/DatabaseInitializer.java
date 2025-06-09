@@ -36,6 +36,14 @@ public class DatabaseInitializer {
                     );
                 """;
 
+                String creatHistoriquesActionc = """
+                                    CREATE TABLE IF NOT EXISTS historique_actions (
+                                    id INT AUTO_INCREMENT PRIMARY KEY,
+                                    action VARCHAR(255) NOT NULL,
+                                    produit VARCHAR(255) NOT NULL,
+                                    date_action DATE NOT NULL
+                                );
+                               """;
                 // Table User (optionnelle pour login si besoin)
                 String createUserTable = """
 CREATE TABLE IF NOT EXISTS users (
@@ -74,6 +82,7 @@ CREATE TABLE IF NOT EXISTS users (
                 stmt.executeUpdate(createMenuTable);
                 stmt.executeUpdate(createUserTable);
                 stmt.executeUpdate(createHistoriqueTable);
+                stmt.executeUpdate(creatHistoriquesActionc);
 
                 System.out.println("✅ Tables vérifiées/créées");
 

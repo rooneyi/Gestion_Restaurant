@@ -167,7 +167,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton layoutX="513.0" layoutY="519.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: #ccc;" text="Imprimer">
+      <JFXButton fx:id="printButton" layoutX="513.0" layoutY="519.0" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: 3f&amp;féf-; -fx-border-color: #ccc;" text="Imprimer"  onAction="#handlePrintTable">
          <font>
             <Font name="Roboto Condensed Bold" size="14.0" />
          </font>
