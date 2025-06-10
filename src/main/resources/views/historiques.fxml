@@ -5,10 +5,14 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,7 +22,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Historiques">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="13.0" prefHeight="39.0" prefWidth="932.0" style="-fx-border-color: #8f8dab;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <children>
@@ -204,11 +208,122 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab text="Stock Faible">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="455.0" prefWidth="930.0" />
-            </content>
-          </Tab>
+            <Tab text="Utilisateurs">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="455.0" prefWidth="930.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                           <padding>
+                              <Insets bottom="10" left="10" right="10" top="10" />
+                           </padding>
+                           <children>
+                              <Label text="Recherche :">
+                                 <font>
+                                    <Font name="Roboto Condensed Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="searchField" prefHeight="35.0" prefWidth="759.0" promptText="Rechercher un utilisateur..." HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Roboto Condensed" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <SplitPane dividerPositions="0.6103752759381899" layoutX="25.0" layoutY="66.0" prefHeight="160.0" prefWidth="220.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="213.0" layoutY="94.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView editable="true" prefHeight="440.0" prefWidth="550.0" tableMenuButtonVisible="true">
+                                            <columns>
+                                              <TableColumn prefWidth="136.33333587646484" text="Noms" />
+                                              <TableColumn prefWidth="78.33332824707031" text="Rôle" />
+                                                <TableColumn prefWidth="78.33331298828125" text="Heure Début" />
+                                                <TableColumn prefWidth="78.33331298828125" text="Heure Fin" />
+                                                <TableColumn prefWidth="78.33331298828125" text="Date" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <Label layoutX="116.0" layoutY="6.0" text="Informations" textFill="#7c7878">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="100.0" layoutX="177.0" layoutY="45.0" startX="-100.0" stroke="#001dfc">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect></Line>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="18.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Images/userpassword_deusuari_787.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="60.0" layoutY="67.0" text="Heure de Déconnexion">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="19.0" layoutY="95.0" text="16 h 13" textFill="#a40808">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="20.0" layoutY="146.0" text="Nom :" textFill="#7c7878">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="83.0" layoutY="146.0" text="Rooney Kal">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="20.0" layoutY="183.0" text="Heures totale :" textFill="#7c7878">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="132.0" layoutY="183.0" text="300">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="188.0" layoutY="181.0" text="H">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="20.0" layoutY="223.0" text="Totql argent Vendu :" textFill="#7c7878">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="161.0" layoutY="223.0" text="20000">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="217.0" layoutY="221.0" text="Fc">
+                                       <font>
+                                          <Font name="Roboto Condensed Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>
