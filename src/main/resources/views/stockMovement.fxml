@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
+            prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" 
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="controller.StockMovementController">
+   <children>
+      <!-- En-tête -->
+      <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="13.0" prefHeight="39.0" prefWidth="932.0" 
+            style="-fx-border-color: #8f8dab;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="262.0" text="Mouvements de Stock" textFill="#8f8dab">
+               <font>
+                  <Font name="Roboto Light Italic" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/stock_18293704.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </children>
+      </HBox>
+
+      <!-- Formulaire de saisie -->
+      <Pane layoutX="20.0" layoutY="70.0" prefHeight="425.0" prefWidth="300.0" 
+            style="-fx-border-color: #8f8dab;" AnchorPane.topAnchor="70.0">
+         <children>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="405.0" prefWidth="280.0" spacing="15">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label text="Produit" textFill="#cccccc">
+                     <font>
+                        <Font name="Roboto Condensed" size="18.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="productChoiceBox" prefHeight="40.0" prefWidth="260.0" 
+                             style="-fx-background-color: #f1f2f6; -fx-border-color: #8f8dab;"/>
+
+                  <Label fx:id="stockStatusLabel" text="Sélectionnez un produit" textFill="#666666">
+                     <font>
+                        <Font name="Roboto Condensed" size="14.0" />
+                     </font>
+                  </Label>
+
+                  <Label text="Type de mouvement" textFill="#cccccc">
+                     <font>
+                        <Font name="Roboto Condensed" size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox spacing="20">
+                     <children>
+                        <RadioButton fx:id="entreeRadio" text="Entrée" textFill="#28a745">
+                           <font>
+                              <Font name="Roboto Condensed" size="16.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="sortieRadio" text="Sortie" textFill="#dc3545">
+                           <font>
+                              <Font name="Roboto Condensed" size="16.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+
+                  <Label text="Quantité" textFill="#cccccc">
+                     <font>
+                        <Font name="Roboto Condensed" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="quantityField" prefHeight="40.0" promptText="Quantité">
+                     <font>
+                        <Font name="Roboto Condensed" size="18.0" />
+                     </font>
+                  </TextField>
+
+                  <Label text="Raison" textFill="#cccccc">
+                     <font>
+                        <Font name="Roboto Condensed" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="reasonTextArea" prefHeight="80.0" promptText="Raison du mouvement">
+                     <font>
+                        <Font name="Roboto Condensed" size="14.0" />
+                     </font>
+                  </TextArea>
+
+                  <Label text="Date" textFill="#cccccc">
+                     <font>
+                        <Font name="Roboto Condensed" size="18.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="datePicker" prefHeight="40.0" prefWidth="260.0"/>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+
+      <!-- Tableau des mouvements -->
+      <VBox layoutX="340.0" layoutY="70.0" prefHeight="425.0" prefWidth="610.0" spacing="10" 
+            AnchorPane.rightAnchor="20.0">
+         <children>
+            <!-- Filtres -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+               <children>
+                  <TextField fx:id="filterField" promptText="Rechercher..." prefWidth="200.0">
+                     <font>
+                        <Font name="Roboto Condensed" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Type:">
+                     <font>
+                        <Font name="Roboto Condensed" size="14.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="filterTypeChoiceBox" prefWidth="120.0"/>
+               </children>
+            </HBox>
+
+            <!-- Tableau -->
+            <TableView fx:id="movementsTable" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="colProduct" text="Produit" prefWidth="120.0"/>
+                  <TableColumn fx:id="colType" text="Type" prefWidth="80.0"/>
+                  <TableColumn fx:id="colQuantity" text="Qté" prefWidth="60.0"/>
+                  <TableColumn fx:id="colReason" text="Raison" prefWidth="150.0"/>
+                  <TableColumn fx:id="colDate" text="Date" prefWidth="100.0"/>
+                  <TableColumn fx:id="colUser" text="Utilisateur" prefWidth="100.0"/>
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+
+      <!-- Boutons d'action -->
+      <HBox spacing="15" layoutX="20.0" layoutY="520.0" AnchorPane.leftAnchor="20.0">
+         <children>
+            <JFXButton fx:id="processButton" onAction="#handleProcessMovement" prefHeight="40.0" prefWidth="140.0" 
+                       style="-fx-background-color: #28a745; -fx-text-fill: white;" text="Traiter">
+               <font>
+                  <Font name="Roboto Condensed Bold" size="14.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/add1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+
+            <JFXButton fx:id="clearButton" onAction="#handleClearFields" prefHeight="40.0" prefWidth="140.0" 
+                       style="-fx-background-color: #6c757d; -fx-text-fill: white;" text="Effacer">
+               <font>
+                  <Font name="Roboto Condensed Bold" size="14.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8_delete_sign_50px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
