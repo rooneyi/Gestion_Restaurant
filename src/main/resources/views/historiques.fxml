@@ -1,30 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.effect.DropShadow?>
+
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Historiques">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
+            prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" 
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="controller.HistoriquesController">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="13.0" prefHeight="39.0" prefWidth="932.0" style="-fx-border-color: #8f8dab;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="13.0" prefHeight="39.0" prefWidth="932.0" 
+            style="-fx-border-color: #8f8dab;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <children>
             <Label alignment="CENTER" prefHeight="50.0" prefWidth="262.0" text="Historiques" textFill="#8f8dab">
                <font>
@@ -37,293 +27,123 @@
                      </image>
                   </ImageView>
                </graphic>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
             </Label>
          </children>
-         <opaqueInsets>
-            <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
-         </opaqueInsets>
       </HBox>
-      <TabPane layoutX="78.0" layoutY="52.0" prefHeight="531.0" prefWidth="930.0" style="-fx-border-color: #8f8dab;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+
+      <!-- Barre de contrôles -->
+      <HBox spacing="10" layoutX="20.0" layoutY="60.0" prefWidth="930.0" alignment="CENTER_LEFT">
+         <children>
+            <TextField fx:id="searchField" promptText="Rechercher..." prefWidth="200.0">
+               <font>
+                  <Font name="Roboto Condensed" size="14.0" />
+               </font>
+            </TextField>
+            <Label text="Date:">
+               <font>
+                  <Font name="Roboto Condensed" size="14.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="filterDatePicker" prefWidth="150.0"/>
+            <Label text="Type:">
+               <font>
+                  <Font name="Roboto Condensed" size="14.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="filterTypeChoiceBox" prefWidth="120.0"/>
+            <Button text="Actualiser" onAction="#handleRefresh" style="-fx-background-color: #056BB3; -fx-text-fill: white;"/>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+
+      <!-- Label pour le chiffre d'affaires -->
+      <Label fx:id="totalRevenueLabel" layoutX="20.0" layoutY="100.0" text="Chiffre d'affaires: 0 FC" 
+             style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #056BB3;"/>
+
+      <!-- TabPane pour les différents historiques -->
+      <TabPane fx:id="historyTabPane" layoutX="20.0" layoutY="130.0" prefHeight="445.0" prefWidth="930.0" 
+               style="-fx-border-color: #8f8dab;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
         <tabs>
-          <Tab closable="false" text="Vente du jour">
+          <!-- Onglet Ventes du jour -->
+          <Tab closable="false" text="Ventes du jour">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="928.0" style="-fx-background-color: #f1f2f6;">
-                     <children>
-                        <Pane layoutX="14.0" layoutY="79.0" prefHeight="410.0" prefWidth="893.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="79.0">
-                           <children>
-                              <VBox layoutX="1.0" layoutY="-1.0" prefHeight="416.0" prefWidth="897.0">
-                                 <children>
-                                    <ScrollPane prefHeight="412.0" prefWidth="465.0">
-                                       <content>
-                                          <AnchorPane prefHeight="411.0" prefWidth="883.0">
-                                             <children>
-                                                <Accordion prefHeight="406.0" prefWidth="882.0">
-                                                   <panes>
-                                                      <TitledPane animated="false" text="13/03/2025">
-                                                         <content>
-                                                            <ScrollPane prefHeight="395.0" prefWidth="459.0" style="-fx-background-color: WHITE;">
-                                                               <content>
-                                                                  <AnchorPane prefHeight="356.0" prefWidth="461.0">
-                                                                     <children>
-                                                                        <Label layoutX="115.0" layoutY="14.0" text="RESTAURANT LE NOTRE" textFill="#3038a8">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed" size="24.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="14.0" layoutY="83.0" text="Nom client :">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="14.0" layoutY="105.0" text="Table :">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="106.0" layoutY="105.0" text="N° ">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="14.0" layoutY="124.0" text="Emporter :">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <CheckBox layoutX="64.0" layoutY="105.0" mnemonicParsing="false" />
-                                                                        <CheckBox layoutX="84.0" layoutY="124.0" mnemonicParsing="false" />
-                                                                        <Line endX="319.0" layoutX="115.0" layoutY="158.0" startX="-100.0" />
-                                                                        <Label layoutX="302.0" layoutY="124.0" text="Mercredi 13/03/2025">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="375.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
-                                                                           <image>
-                                                                              <Image url="@../Images/Maximize.png" />
-                                                                           </image>
-                                                                        </ImageView>
-                                                                        <Label layoutX="355.0" layoutY="65.0" text="Rooney Kal" textFill="#979797">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="14.0" layoutY="170.0" text="Qté">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="95.0" layoutY="170.0" text="Désinations">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="248.0" layoutY="170.0" text="Montant">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="14.0" layoutY="202.0" text="4">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="95.0" layoutY="202.0" text="Poulet Mayo">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="248.0" layoutY="202.0" text="40.000">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="321.0" layoutY="202.0" text="Fc">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="14.0" layoutY="226.0" text="10">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="95.0" layoutY="226.0" text="Eau Dasani">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="248.0" layoutY="226.0" text="5.000">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="321.0" layoutY="226.0" text="Fc">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="14.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Line endX="319.0" layoutX="115.0" layoutY="292.0" startX="-100.0" />
-                                                                        <Line endX="319.0" layoutX="115.0" layoutY="332.0" startX="-100.0" />
-                                                                        <Label layoutX="13.0" layoutY="299.0" text="TOTAL GENERAL  :">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="24.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="209.0" layoutY="299.0" text="45.000">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="24.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                        <Label layoutX="294.0" layoutY="299.0" text="Fc">
-                                                                           <font>
-                                                                              <Font name="Roboto Condensed Bold" size="24.0" />
-                                                                           </font>
-                                                                        </Label>
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                               </content>
-                                                            </ScrollPane>
-                                                         </content>
-                                                      </TitledPane>
-                                                      <TitledPane animated="false" text="14/03/2025" />
-                                                   </panes>
-                                                </Accordion>
-                                             </children>
-                                          </AnchorPane>
-                                       </content>
-                                    </ScrollPane>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </Pane>
-                        <TextField layoutX="14.0" layoutY="19.0" prefHeight="37.0" prefWidth="467.0" promptText="Votre recherche">
-                           <font>
-                              <Font name="Roboto Condensed" size="14.0" />
-                           </font>
-                        </TextField>
-                     </children></AnchorPane>
+              <VBox spacing="10">
+                 <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+                 <children>
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                       <children>
+                          <Button text="Exporter" onAction="#handleExportVentes" 
+                                  style="-fx-background-color: #28a745; -fx-text-fill: white;"/>
+                       </children>
+                    </HBox>
+                    <TableView fx:id="ventesTable" VBox.vgrow="ALWAYS">
+                       <columns>
+                          <TableColumn fx:id="colClientName" text="Client" prefWidth="150.0"/>
+                          <TableColumn fx:id="colTableNumber" text="Table" prefWidth="80.0"/>
+                          <TableColumn fx:id="colDate" text="Date" prefWidth="100.0"/>
+                          <TableColumn fx:id="colMontant" text="Montant (FC)" prefWidth="120.0"/>
+                          <TableColumn fx:id="colStatus" text="Statut" prefWidth="100.0"/>
+                       </columns>
+                    </TableView>
+                 </children>
+              </VBox>
             </content>
           </Tab>
-            <Tab text="Utilisateurs">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="455.0" prefWidth="930.0">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" spacing="10" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
-                           <padding>
-                              <Insets bottom="10" left="10" right="10" top="10" />
-                           </padding>
-                           <children>
-                              <Label text="Recherche :">
-                                 <font>
-                                    <Font name="Roboto Condensed Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="searchField" prefHeight="35.0" prefWidth="759.0" promptText="Rechercher un utilisateur..." HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Roboto Condensed" size="14.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </TextField>
-                           </children>
-                        </HBox>
-                        <SplitPane dividerPositions="0.6103752759381899" layoutX="25.0" layoutY="66.0" prefHeight="160.0" prefWidth="220.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
-                          <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                 <children>
-                                    <VBox layoutX="213.0" layoutY="94.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <TableView editable="true" prefHeight="440.0" prefWidth="550.0" tableMenuButtonVisible="true">
-                                            <columns>
-                                              <TableColumn prefWidth="136.33333587646484" text="Noms" />
-                                              <TableColumn prefWidth="78.33332824707031" text="Rôle" />
-                                                <TableColumn prefWidth="78.33331298828125" text="Heure Début" />
-                                                <TableColumn prefWidth="78.33331298828125" text="Heure Fin" />
-                                                <TableColumn prefWidth="78.33331298828125" text="Date" />
-                                            </columns>
-                                          </TableView>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                 <children>
-                                    <Label layoutX="116.0" layoutY="6.0" text="Informations" textFill="#7c7878">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Line endX="100.0" layoutX="177.0" layoutY="45.0" startX="-100.0" stroke="#001dfc">
-                                       <effect>
-                                          <DropShadow />
-                                       </effect></Line>
-                                    <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="18.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/userpassword_deusuari_787.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label layoutX="60.0" layoutY="67.0" text="Heure de Déconnexion">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="19.0" layoutY="95.0" text="16 h 13" textFill="#a40808">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="20.0" layoutY="146.0" text="Nom :" textFill="#7c7878">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="83.0" layoutY="146.0" text="Rooney Kal">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="20.0" layoutY="183.0" text="Heures totale :" textFill="#7c7878">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="132.0" layoutY="183.0" text="300">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="188.0" layoutY="181.0" text="H">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="20.0" layoutY="223.0" text="Totql argent Vendu :" textFill="#7c7878">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="161.0" layoutY="223.0" text="20000">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="217.0" layoutY="221.0" text="Fc">
-                                       <font>
-                                          <Font name="Roboto Condensed Bold" size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                          </items>
-                        </SplitPane>
-                     </children></AnchorPane>
-               </content>
-            </Tab>
+          <!-- Onglet Mouvements de stock -->
+          <Tab text="Mouvements de stock">
+            <content>
+              <VBox spacing="10">
+                 <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+                 <children>
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                       <children>
+                          <Button text="Exporter" onAction="#handleExportStock" 
+                                  style="-fx-background-color: #28a745; -fx-text-fill: white;"/>
+                       </children>
+                    </HBox>
+                    <TableView fx:id="stockTable" VBox.vgrow="ALWAYS">
+                       <columns>
+                          <TableColumn fx:id="colProductName" text="Produit" prefWidth="150.0"/>
+                          <TableColumn fx:id="colMovementType" text="Type" prefWidth="80.0"/>
+                          <TableColumn fx:id="colQuantity" text="Quantité" prefWidth="80.0"/>
+                          <TableColumn fx:id="colReason" text="Raison" prefWidth="200.0"/>
+                          <TableColumn fx:id="colMovementDate" text="Date" prefWidth="100.0"/>
+                          <TableColumn fx:id="colUser" text="Utilisateur" prefWidth="120.0"/>
+                       </columns>
+                    </TableView>
+                 </children>
+              </VBox>
+            </content>
+          </Tab>
+
+          <!-- Onglet Stock faible -->
+          <Tab text="Stock faible">
+            <content>
+              <VBox spacing="10">
+                 <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+                 <children>
+                    <Label text="Produits avec un stock faible (moins de 10 unités)" 
+                           style="-fx-font-weight: bold; -fx-text-fill: #dc3545;"/>
+                    <TableView>
+                       <columns>
+                          <TableColumn text="Produit" prefWidth="200.0"/>
+                          <TableColumn text="Stock actuel" prefWidth="100.0"/>
+                          <TableColumn text="Catégorie" prefWidth="150.0"/>
+                          <TableColumn text="Prix unitaire" prefWidth="120.0"/>
+                       </columns>
+                    </TableView>
+                 </children>
+              </VBox>
+            </content>
+          </Tab>
         </tabs>
       </TabPane>
    </children>
