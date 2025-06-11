@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeDashboardController">
    <children>
       <Pane layoutX="5.0" layoutY="23.0" prefHeight="168.0" prefWidth="960.0" style="-fx-background-color: White; -fx-border-radius: 20; -fx-background-radius: 20;" AnchorPane.bottomAnchor="404.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="23.0">
          <effect>
@@ -36,7 +36,7 @@
                               <Insets top="30.0" />
                            </VBox.margin>
                         </Label>
-                        <Label alignment="BOTTOM_CENTER" text="400" textFill="#787fbf">
+                        <Label fx:id="usersCountLabel" alignment="BOTTOM_CENTER" text="0" textFill="#787fbf">
                            <font>
                               <Font name="Roboto Condensed" size="30.0" />
                            </font>
@@ -65,7 +65,7 @@
                               <Insets top="30.0" />
                            </VBox.margin>
                         </Label>
-                        <Label alignment="BOTTOM_CENTER" text="1000" textFill="#787fbf">
+                        <Label fx:id="dailySalesLabel" alignment="BOTTOM_CENTER" text="0" textFill="#787fbf">
                            <font>
                               <Font name="Roboto Condensed" size="30.0" />
                            </font>
@@ -94,7 +94,7 @@
                               <Insets top="30.0" />
                            </VBox.margin>
                         </Label>
-                        <Label alignment="BOTTOM_CENTER" text="40" textFill="#787fbf">
+                        <Label fx:id="lowStockLabel" alignment="BOTTOM_CENTER" text="0" textFill="#787fbf">
                            <font>
                               <Font name="Roboto Condensed" size="30.0" />
                            </font>
@@ -123,7 +123,7 @@
                               <Insets top="30.0" />
                            </VBox.margin>
                         </Label>
-                        <Label alignment="BOTTOM_CENTER" text="10" textFill="#787fbf">
+                        <Label fx:id="outOfStockLabel" alignment="BOTTOM_CENTER" text="0" textFill="#787fbf">
                            <font>
                               <Font name="Roboto Condensed" size="30.0" />
                            </font>
@@ -152,7 +152,7 @@
                               <Insets top="30.0" />
                            </VBox.margin>
                         </Label>
-                        <Label alignment="BOTTOM_CENTER" text="2500" textFill="#787fbf">
+                        <Label fx:id="totalRevenueLabel" alignment="BOTTOM_CENTER" text="0" textFill="#787fbf">
                            <font>
                               <Font name="Roboto Condensed" size="30.0" />
                            </font>

@@ -1,4 +1,3 @@
-// controllers/AuthController.java
 package controller;
 
 import java.io.IOException;
@@ -24,40 +23,58 @@ public class AuthController implements Initializable {
     @FXML private PasswordField passwordField;
     @FXML private ChoiceBox<String> roleChoiceBox;
 
+    private AuthService authService;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         authService = new AuthService();
-        authService.createUser("admin", "admin123", true); // username, password, role
-        authService = new AuthService();
+        
+        // Créer un utilisateur admin par défaut s'il n'existe pas
+        try {
+            User existingAdmin = authService.getUser("admin");
+            if (existingAdmin == null) {
+                authService.createUser("admin", "admin123", true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
         roleChoiceBox.getItems().addAll("Admin", "Utilisateur");
-        roleChoiceBox.setValue("Utilisateur");
+        roleChoiceBox.setValue("Admin");
     }
-
-    private AuthService authService;
 
     @FXML
     private void handleLogin() throws IOException {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
+        String username = usernameField.getText().trim();
+        String password = passwordField.getText().trim();
         String selectedRole = roleChoiceBox.getValue();
+
+        if (username.isEmpty() || password.isEmpty()) {
+            showAlert("Erreur", "Veuillez remplir tous les champs");
+            return;
+        }
 
         if (authService.authenticate(username, password)) {
             User user = authService.getUser(username);
 
-            if ((user.isAdmin() && "admin".equalsIgnoreCase(selectedRole)) ||
-                    (!user.isAdmin() && "user".equalsIgnoreCase(selectedRole))) {
+            if (user != null) {
+                // Vérifier la correspondance du rôle
+                boolean roleMatches = (user.isAdmin() && "Admin".equals(selectedRole)) ||
+                                    (!user.isAdmin() && "Utilisateur".equals(selectedRole));
 
-                utils.Session.getInstance().setUser(user);
-                redirectToDashboard(user);
+                if (roleMatches) {
+                    utils.Session.getInstance().setUser(user);
+                    redirectToDashboard(user);
+                } else {
+                    showAlert("Erreur", "Le rôle sélectionné ne correspond pas à l'utilisateur.");
+                }
             } else {
-                showAlert("Erreur", "Le rôle sélectionné ne correspond pas à l'utilisateur.");
+                showAlert("Erreur", "Utilisateur non trouvé");
             }
-
         } else {
             showAlert("Erreur d'authentification", "Identifiants incorrects");
         }
     }
-
 
     private void redirectToDashboard(User user) throws IOException {
         Stage stage = (Stage) usernameField.getScene().getWindow();
