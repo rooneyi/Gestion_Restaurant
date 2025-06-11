@@ -1,61 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.GestionUserController">
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestionUserController">
 
    <top>
       <HBox spacing="10">
          <padding>
-            <Insets top="10" right="10" bottom="10" left="10"/>
+            <Insets bottom="10" left="10" right="10" top="10" />
          </padding>
-         <Label text="Recherche :"/>
-         <TextField fx:id="searchField" promptText="Rechercher un utilisateur..."
-                    onKeyReleased="#filterUsers" HBox.hgrow="ALWAYS"/>
+         <Label text="Recherche :" />
+         <TextField fx:id="searchField" onKeyReleased="#filterUsers" promptText="Rechercher un utilisateur..." HBox.hgrow="ALWAYS" />
       </HBox>
    </top>
 
    <center>
       <SplitPane dividerPositions="0.35">
          <!-- Formulaire -->
-         <VBox spacing="15" minWidth="300">
+         <VBox minWidth="300" spacing="15">
             <padding>
-               <Insets top="10" right="10" bottom="10" left="10"/>
+               <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
-            <Label text="Gestion des utilisateurs" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="185.0" style="-fx-border-color: #8f8dab;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="262.0" text="Gestions Utilisateurs" textFill="#8f8dab">
+                     <font>
+                        <Font name="Roboto Light Italic" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+               </opaqueInsets>
+            </HBox>
 
             <GridPane hgap="10" vgap="10">
-               <Label text="Nom d'utilisateur :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-               <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+               <Label text="Nom d'utilisateur :" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+               <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-               <Label text="Mot de passe :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-               <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+               <Label text="Mot de passe :" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+               <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-               <Label text="Administrateur :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-               <CheckBox fx:id="isAdminCheckbox" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+               <Label text="Administrateur :" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+               <CheckBox fx:id="isAdminCheckbox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
             </GridPane>
 
             <HBox spacing="10">
-               <Button text="Ajouter" onAction="#addUser" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-               <Button text="Modifier" onAction="#updateUser" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
-               <Button text="Supprimer" onAction="#deleteUser" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+               <Button maxWidth="Infinity" onAction="#addUser" text="Ajouter" HBox.hgrow="ALWAYS" />
+               <Button maxWidth="Infinity" onAction="#updateUser" text="Modifier" HBox.hgrow="ALWAYS" />
+               <Button maxWidth="Infinity" onAction="#deleteUser" text="Supprimer" HBox.hgrow="ALWAYS" />
             </HBox>
          </VBox>
 
          <!-- TableView -->
          <VBox spacing="10">
             <padding>
-               <Insets top="10" right="10" bottom="10" left="10"/>
+               <Insets bottom="10" left="10" right="10" top="10" />
             </padding>
             <TableView fx:id="userTable" prefWidth="600" VBox.vgrow="ALWAYS">
                <columns>
-                  <TableColumn fx:id="usernameCol" text="Nom d'utilisateur" prefWidth="200"/>
-                  <TableColumn fx:id="passwordCol" text="Mot de passe" prefWidth="200"/>
-                  <TableColumn fx:id="isAdminCol" text="Admin" prefWidth="100"/>
+                  <TableColumn fx:id="usernameCol" prefWidth="200" text="Nom d'utilisateur" />
+                  <TableColumn fx:id="passwordCol" prefWidth="200" text="Mot de passe" />
+                  <TableColumn fx:id="isAdminCol" prefWidth="100" text="Admin" />
                </columns>
             </TableView>
          </VBox>
