@@ -17,7 +17,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StockMovementController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0"
+            prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.StockMovementController">
    <children>
       <!-- En-tête -->
       <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="13.0" prefHeight="39.0" prefWidth="932.0" style="-fx-border-color: #8f8dab;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
@@ -133,17 +136,17 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TreeTableView fx:id="movementsTable" editable="true" layoutX="47.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                  <TreeTableView  editable="true" layoutX="47.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                     <columns>
-                      <TreeTableColumn fx:id="colProduct" prefWidth="125.66668701171875" text="Produit" />
-                      <TreeTableColumn fx:id="colType" prefWidth="71.0" text="Type" />
-                        <TreeTableColumn fx:id="colQuantity" prefWidth="50.0" text="Qté" />
-                        <TreeTableColumn fx:id="colReason" prefWidth="155.0" text="Raison" />
-                        <TreeTableColumn fx:id="colDate" prefWidth="105.0" text="Date" />
-                        <TreeTableColumn fx:id="colUser" prefWidth="104.33331298828125" text="Utilisateur" />
+                      <TreeTableColumn  prefWidth="125.66668701171875" text="Produit" />
+                      <TreeTableColumn  prefWidth="71.0" text="Type" />
+                        <TreeTableColumn  prefWidth="50.0" text="Qté" />
+                        <TreeTableColumn  prefWidth="155.0" text="Raison" />
+                        <TreeTableColumn  prefWidth="105.0" text="Date" />
+                        <TreeTableColumn  prefWidth="104.33331298828125" text="Utilisateur" />
                     </columns>
                   </TreeTableView>
-                  <TextField fx:id="filterTypeChoiceBox" layoutX="21.0" layoutY="14.0" prefHeight="35.0" prefWidth="263.0" promptText="Recherche.......">
+                  <TextField fx:id="filterField" layoutX="21.0" layoutY="14.0" prefHeight="35.0" prefWidth="263.0" promptText="Recherche.......">
                      <font>
                         <Font name="Roboto Condensed" size="14.0" />
                      </font>
