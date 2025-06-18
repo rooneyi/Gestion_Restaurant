@@ -28,6 +28,7 @@ public class DashBoardController implements Initializable {
 
     @FXML private Button logoutButton;
     @FXML private ImageView Exit;
+    @FXML private ImageView Reduire;
     @FXML private Label Menu;
     @FXML private Label MenuClose;
     @FXML private AnchorPane slider;
@@ -44,6 +45,15 @@ public class DashBoardController implements Initializable {
         Exit.setOnMouseClicked(event -> {
             System.exit(0);
         });
+
+        // Réduire la fenêtre
+        Reduire.setOnMouseClicked(event -> {
+            Stage stage = (Stage) Reduire.getScene().getWindow();
+            stage.setIconified(true);
+        });
+
+
+
 
         // Charger la vue d'accueil par défaut
         try {
