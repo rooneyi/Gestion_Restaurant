@@ -18,6 +18,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="970.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StockMovementController">
    <children>
       <!-- En-tête -->
@@ -134,16 +136,16 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TreeTableView editable="true" layoutX="47.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
-                    <columns>
-                      <TreeTableColumn prefWidth="125.66668701171875" text="Produit" />
-                      <TreeTableColumn prefWidth="71.0" text="Type" />
-                        <TreeTableColumn prefWidth="50.0" text="Qté" />
-                        <TreeTableColumn prefWidth="155.0" text="Raison" />
-                        <TreeTableColumn prefWidth="105.0" text="Date" />
-                        <TreeTableColumn prefWidth="104.33331298828125" text="Utilisateur" />
-                    </columns>
-                  </TreeTableView>
+                  <TableView fx:id="movementsTable" layoutX="47.0" layoutY="147.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                     <columns>
+                        <TableColumn fx:id="colProduct" prefWidth="125.66668701171875" text="Produit" />
+                        <TableColumn fx:id="colType" prefWidth="71.0" text="Type" />
+                        <TableColumn fx:id="colQuantity" prefWidth="50.0" text="Qté" />
+                        <TableColumn fx:id="colReason" prefWidth="155.0" text="Raison" />
+                        <TableColumn fx:id="colDate" prefWidth="105.0" text="Date" />
+                        <TableColumn fx:id="colUser" prefWidth="104.33331298828125" text="Utilisateur" />
+                     </columns>
+                  </TableView>
                   <TextField fx:id="filterField" layoutX="21.0" layoutY="14.0" prefHeight="35.0" prefWidth="263.0" promptText="Recherche.......">
                      <font>
                         <Font name="Roboto Condensed" size="14.0" />

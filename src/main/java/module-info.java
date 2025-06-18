@@ -21,7 +21,5 @@ module org.example.gestion_restaurant {
     opens models to javafx.base; // 👈 autorise javafx.base à accéder au package models
     opens controller to javafx.fxml;
     opens org to javafx.fxml;
-    exports controllers to javafx.fxml;
-    opens controllers to javafx.fxml;
 
 }
