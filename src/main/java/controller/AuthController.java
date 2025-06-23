@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import models.User;
 import services.AuthService;
@@ -22,6 +23,8 @@ public class AuthController implements Initializable {
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
     @FXML private ChoiceBox<String> roleChoiceBox;
+    @FXML private ImageView Exit;
+    @FXML private ImageView Reduire;
 
     private AuthService authService;
 
@@ -41,6 +44,17 @@ public class AuthController implements Initializable {
         
         roleChoiceBox.getItems().addAll("Admin", "Utilisateur");
         roleChoiceBox.setValue("Admin");
+
+        // Fermer l'application
+        Exit.setOnMouseClicked(event -> {
+            System.exit(0);
+        });
+
+        // Réduire la fenêtre
+        Reduire.setOnMouseClicked(event -> {
+            Stage stage = (Stage) Reduire.getScene().getWindow();
+            stage.setIconified(true);
+        });
     }
 
     @FXML
@@ -75,6 +89,8 @@ public class AuthController implements Initializable {
             showAlert("Erreur d'authentification", "Identifiants incorrects");
         }
     }
+
+
 
     private void redirectToDashboard(User user) throws IOException {
         Stage stage = (Stage) usernameField.getScene().getWindow();
