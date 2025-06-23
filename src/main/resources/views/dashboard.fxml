@@ -39,13 +39,13 @@
                         </ImageView>
                             </children>
                         </Pane>
-                        <HBox layoutX="239.0" layoutY="1.0" prefHeight="40.0" prefWidth="823.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                        <HBox layoutX="239.0" layoutY="1.0" prefHeight="40.0" prefWidth="954.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                             <children>
                                 <JFXButton onAction="#home" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Tableau de bord">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/dash1.png" />
+                                                <Image url="@../Images/home.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -94,6 +94,18 @@
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Images/data1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton layoutX="554.0" layoutY="10.0" onAction="#mouvementsStock" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Mouvements">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-vendre-les-stock-64.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -176,7 +188,7 @@
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/menu.png" />
+                                                <Image url="@../Images/icons8-facturation-80.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
