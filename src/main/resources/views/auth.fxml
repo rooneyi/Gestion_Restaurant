@@ -1,127 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1150.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AuthController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" 
+            prefHeight="660.0" prefWidth="1150.0" style="-fx-background-color: #f1f2f6;" 
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="org.example.gestion_restaurant.controllers.AuthController">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="660.0" prefWidth="1150.0" AnchorPane.bottomAnchor="0.0" 
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         
+         <!-- En-tête -->
          <top>
-            <AnchorPane prefHeight="132.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
+            <VBox BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" layoutX="-4.0" layoutY="35.0" prefHeight="97.0" prefWidth="1150.0" style="-fx-background-color: #0A4969;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="34.0">
+                  <!-- Barre de titre -->
+                  <HBox alignment="CENTER_RIGHT" prefHeight="35.0" style="-fx-background-color: #032d4d;">
                      <children>
-                        <Label style="-fx-text-fill: WHITE;" text="RESTAURANT LE - NOTRE" textFill="#dbe2fc">
+                        <Region HBox.hgrow="ALWAYS" />
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Minimize.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" 
+                                   onMouseClicked="#handleCancel">
+                           <image>
+                              <Image url="@../Images/Exit.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets top="7.0" bottom="7.0" />
+                     </padding>
+                  </HBox>
+                  
+                  <!-- Logo et titre -->
+                  <HBox alignment="CENTER" prefHeight="100.0" style="-fx-background-color: #0A4969;">
+                     <children>
+                        <Label style="-fx-text-fill: WHITE;" text="RESTAURANT LE NOTRE" textFill="#dbe2fc">
                            <font>
                               <Font name="Roboto Condensed Bold" size="48.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <Pane layoutX="124.0" layoutY="-1.0" prefHeight="34.0" prefWidth="1150.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="98.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1117.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/Exit.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1084.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/Minimize.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
                </children>
-            </AnchorPane>
+            </VBox>
          </top>
+         
+         <!-- Contenu principal -->
          <center>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="528.0" prefWidth="729.0">
+                  <VBox alignment="CENTER" spacing="30" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                     <padding>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </padding>
                      <children>
-                        <AnchorPane layoutX="9.0" layoutY="54.0" prefHeight="396.0" prefWidth="709.0" style="-fx-background-color: White; -fx-effect: dropshad; -fx-background-radius: 4; -fx-border-radius: 10;">
+                        <!-- Image de connexion -->
+                        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/userpassword_deusuari_787.png" />
+                           </image>
+                        </ImageView>
+                        
+                        <!-- Titre -->
+                        <Label text="CONNEXION" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #056BB3;" />
+                        
+                        <!-- Formulaire -->
+                        <VBox spacing="20" prefWidth="350">
                            <children>
-                              <Pane layoutX="68.0" layoutY="98.0" prefHeight="396.0" prefWidth="275.0" style="-fx-background-color: #056BB3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="434.0" AnchorPane.topAnchor="0.0">
+                              <!-- Nom d'utilisateur -->
+                              <VBox spacing="5">
                                  <children>
-                                    <ImageView fitHeight="189.0" fitWidth="190.0" layoutX="43.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/userpassword_deusuari_787.png" />
-                                       </image>
-                                    </ImageView>
+                                    <Label text="Nom d'utilisateur" style="-fx-font-size: 14px; -fx-text-fill: #666;" />
+                                    <TextField fx:id="usernameField" prefHeight="40.0" promptText="Entrez votre nom d'utilisateur" 
+                                               style="-fx-font-size: 14px;" />
                                  </children>
-                              </Pane>
-                              <Label layoutX="334.0" layoutY="129.0" text="Nom">
-                                 <font>
-                                    <Font name="Roboto Condensed Light" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="334.0" layoutY="179.0" text="Mot de passe">
-                                 <font>
-                                    <Font name="Roboto Condensed Light" size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="usernameField" layoutX="431.0" layoutY="121.0" prefHeight="35.0" prefWidth="220.0" promptText="Entrez Votre nom">
-                                 <font>
-                                    <Font name="Roboto Condensed Light" size="14.0" />
-                                 </font>
-                              </TextField>
-                              <PasswordField fx:id="passwordField" layoutX="431.0" layoutY="171.0" prefHeight="35.0" prefWidth="220.0" promptText="Entrez Votre Mot de passe">
-                                 <font>
-                                    <Font name="Roboto Condensed Light" size="14.0" />
-                                 </font>
-                              </PasswordField>
-                              <JFXButton layoutX="336.0" layoutY="307.0" onAction="#handleLogin" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: WHITE; -fx-border-color: #C9E24D; -fx-text-fill: Black;" text="Connexion">
-                                 <font>
-                                    <Font name="Roboto Condensed" size="14.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXButton>
-                              <JFXButton layoutX="541.0" layoutY="307.0" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: WHITE; -fx-border-color: #EE6A8C; -fx-text-fill: Black;" text="Annuler">
-                                 <font>
-                                    <Font name="Roboto Condensed" size="14.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </JFXButton>
-                              <ChoiceBox fx:id="roleChoiceBox" layoutX="334.0" layoutY="253.0" prefHeight="28.0" prefWidth="208.0" style="-fx-background-color: WHITE; -fx-border-color: #056bb3;">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ChoiceBox>
-                              <Label layoutX="332.0" layoutY="233.0" style="-fx-text-fill: #CCC;" text="Choisissez Votre Rôle :">
-                                 <font>
-                                    <Font name="Roboto Condensed" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="errorLabel" alignment="CENTER" layoutX="315.0" layoutY="363.0" prefHeight="19.0" prefWidth="379.0" style="-fx-weight: bold; -fx-text-fill: #EE6A8C;">
-                                 <font>
-                                    <Font name="Roboto Condensed" size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="417.0" layoutY="28.0" text="CONNEXION">
-                                 <font>
-                                    <Font name="Roboto Condensed Light" size="36.0" />
-                                 </font>
-                              </Label>
+                              </VBox>
+                              
+                              <!-- Mot de passe -->
+                              <VBox spacing="5">
+                                 <children>
+                                    <Label text="Mot de passe" style="-fx-font-size: 14px; -fx-text-fill: #666;" />
+                                    <PasswordField fx:id="passwordField" prefHeight="40.0" promptText="Entrez votre mot de passe" 
+                                                   style="-fx-font-size: 14px;" />
+                                 </children>
+                              </VBox>
+                              
+                              <!-- Rôle -->
+                              <VBox spacing="5">
+                                 <children>
+                                    <Label text="Rôle" style="-fx-font-size: 14px; -fx-text-fill: #666;" />
+                                    <ChoiceBox fx:id="roleChoiceBox" prefHeight="40.0" prefWidth="350.0" />
+                                 </children>
+                              </VBox>
+                              
+                              <!-- Message d'erreur -->
+                              <Label fx:id="errorLabel" style="-fx-text-fill: #dc3545; -fx-font-size: 12px;" 
+                                     visible="false" wrapText="true" />
+                              
+                              <!-- Boutons -->
+                              <HBox spacing="15" alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="loginButton" onAction="#handleLogin" prefHeight="45.0" prefWidth="150.0" 
+                                            styleClass="btn-primary" text="Se connecter" />
+                                    <Button fx:id="cancelButton" onAction="#handleCancel" prefHeight="45.0" prefWidth="150.0" 
+                                            styleClass="btn-secondary" text="Annuler" />
+                                 </children>
+                              </HBox>
                            </children>
-                        </AnchorPane>
+                        </VBox>
                      </children>
-                  </Pane>
+                  </VBox>
                </children>
             </HBox>
          </center>
