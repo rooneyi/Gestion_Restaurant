@@ -25,21 +25,27 @@
                                     <image>
                                         <Image url="@../Images/Exit.png" />
                                     </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                                 </ImageView>
-                        <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="1094.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="Reduire" fitHeight="22.0" fitWidth="22.0" layoutX="1094.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Images/Minimize.png" />
+                              <Image url="@../Images/icons8-moins-48.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                             </children>
                         </Pane>
-                        <HBox layoutX="239.0" layoutY="1.0" prefHeight="40.0" prefWidth="823.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                        <HBox layoutX="239.0" layoutY="1.0" prefHeight="40.0" prefWidth="954.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                             <children>
                                 <JFXButton onAction="#home" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Tableau de bord">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/dash1.png" />
+                                                <Image url="@../Images/home.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -49,9 +55,9 @@
                                 </JFXButton>
                                 <JFXButton onAction="#facturations" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Facturations">
                                     <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/burger.png" />
+                                                <Image url="@../Images/icons8-facturation-80.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -88,6 +94,18 @@
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Images/data1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton layoutX="554.0" layoutY="10.0" onAction="#mouvementsStock" prefHeight="38.0" prefWidth="136.0" styleClass="menuItem" text="Mouvements">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-vendre-les-stock-64.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -170,7 +188,7 @@
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/menu.png" />
+                                                <Image url="@../Images/icons8-facturation-80.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -232,7 +250,7 @@
                                  <graphic>
                                     <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../Images/stock_18293704.png" />
+                                          <Image url="@../Images/icons8-vendre-les-stock-64%20(1).png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -273,7 +291,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f1f2f6;" BorderPane.alignment="CENTER">
                <children>
-                  <StackPane fx:id="contentArea" layoutX="97.0" layoutY="148.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <StackPane fx:id="contentArea" layoutY="2.0" prefHeight="602.0" prefWidth="974.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="2.0" />
                </children>
             </AnchorPane>
          </center>
